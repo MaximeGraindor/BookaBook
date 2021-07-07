@@ -53,15 +53,27 @@ table {
   border-spacing: 0;
 }
 
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 body {
   font-family: "Source Sans Pro", Verdana, Arial, Helvetica, sans-serif;
   font-size: 16px;
+  background-color: #F4F6FC;
 }
 
 .register-wrapper {
   display: flex;
-  height: 93vh;
-  margin: 2rem;
+  height: 100vh;
   box-sizing: border-box;
 }
 
@@ -123,7 +135,7 @@ body {
 .register-title {
   font-size: 3rem;
   font-weight: bold;
-  margin-bottom: 1.875rem;
+  margin-bottom: 3.125rem;
 }
 
 .register-form div:not(:last-child) {
@@ -135,13 +147,14 @@ body {
 }
 .register-form label {
   margin-bottom: 0.1875rem;
+  font-weight: 600;
 }
 .register-form input {
   padding: 0.5625rem 0.625rem;
   width: 450px;
   box-sizing: border-box;
   border: 1px solid black;
-  background-color: #E6E6E6;
+  background-color: white;
   border-radius: 0.1875rem;
 }
 .register-form input[type=submit] {
@@ -149,6 +162,7 @@ body {
   color: white;
   cursor: pointer;
   margin-top: 2.1875rem;
+  border: none;
 }
 
 .register-error {
@@ -160,4 +174,127 @@ body {
 
 .register-input-error {
   border: 2px solid #ac0000 !important;
+}
+
+.login-wrapper {
+  display: flex;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.login-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 0 0 50%;
+}
+
+.login-right {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), url("./../img/register-background.jpg");
+  /* W3C */
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex: 0 0 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5rem;
+  box-sizing: border-box;
+}
+.login-right .login-intro {
+  font-size: 1.625rem;
+  margin-bottom: 1.25rem;
+  color: white;
+}
+.login-right .login-intro span:first-child {
+  display: block;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3125rem;
+  font-weight: 200;
+  margin-bottom: 0.625rem;
+}
+.login-right .login-intro span + span {
+  font-size: 6.25rem;
+  font-weight: bold;
+}
+.login-right .login-intro:after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 5px;
+  background-color: white;
+  margin-top: 1.25rem;
+}
+.login-right .login-info {
+  color: white;
+  font-size: 1.375rem;
+  margin-bottom: 1.375rem;
+  line-height: 1.5625rem;
+}
+.login-right .login-logo-HEPL {
+  width: 300px;
+}
+
+.login-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 3.125rem;
+}
+
+.login-form div:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+.login-form label, .login-form input {
+  font-size: 1.25rem;
+}
+.login-form label {
+  font-weight: 600;
+}
+.login-form input[type=email], .login-form input[type=password] {
+  padding: 0.5625rem 0.625rem;
+  width: 450px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 0.1875rem;
+  display: block;
+  margin-top: 0.1875rem;
+}
+.login-form input[type=submit] {
+  padding: 0.5625rem 0.625rem;
+  width: 450px;
+  box-sizing: border-box;
+  background-color: #536b99;
+  color: white;
+  cursor: pointer;
+  margin-top: 2.1875rem;
+  border: none;
+  display: block;
+}
+
+.login-error {
+  color: #ac0000;
+  font-weight: 600;
+  display: block;
+  margin-top: 0.2rem;
+}
+
+.login-input-error {
+  border: 2px solid #ac0000 !important;
+}
+
+.login-forgotPassword {
+  color: black;
+  text-align: right;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.login-others {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
 }

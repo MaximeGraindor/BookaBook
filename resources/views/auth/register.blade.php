@@ -2,7 +2,8 @@
 @section('title', 'Inscription')
 @section('content')
     <div class="register-wrapper">
-        <div class="register-left">
+        <h1 class="hidden" role="heading" aria-level="1">Book a Book - Inscription</h1>
+        <section class="register-left">
             <div class="register-left-wrapper">
                 <h2 class="register-title">Inscription</h2>
                 <form action="/register" method="post" class="register-form">
@@ -84,7 +85,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </section>
         <div class="register-right">
             <p class="register-intro">
                 <span>Bienvenue sur</span> <span>Book a Book</span>
