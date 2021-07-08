@@ -48,9 +48,9 @@
     }
     .login-info{
         color: white;
-        font-size: pxToRem(22);
+        font-size: pxToRem(20);
         margin-bottom: pxToRem(22);
-        line-height: pxToRem(25);
+        line-height: pxToRem(28);
     }
     .login-logo-HEPL{
         width: 300px;
@@ -67,12 +67,6 @@
     div:not(:last-child){
         margin-bottom: pxToRem(20);
     }
-    label, input{
-        font-size: pxToRem(20);
-    }
-    label{
-        font-weight: 600;
-    }
     input[type=email], input[type=password]{
         padding: pxToRem(9) pxToRem(10);
         width: 450px;
@@ -82,6 +76,10 @@
         border-radius: pxToRem(3);
         display: block;
         margin-top: pxToRem(3);
+        font-size: pxToRem(20);
+    }
+    label[for=email], label[for=password]{
+        font-size: pxToRem(20);
     }
     input[type=submit]{
         padding: pxToRem(9) pxToRem(10);
@@ -93,6 +91,7 @@
         margin-top: pxToRem(35);
         border: none;
         display: block;
+        font-size: pxToRem(20);
     }
 }
 
@@ -110,8 +109,7 @@
     color: black;
     text-align: right;
     text-decoration: none;
-    font-size: pxToRem(20);
-    font-weight: 600;
+    font-size: pxToRem(16);
 }
 
 .login-others{

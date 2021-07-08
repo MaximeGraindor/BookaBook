@@ -1,6 +1,11 @@
-$font : 'Source Sans Pro', Verdana, Arial, Helvetica, sans-serif;
+$font : 'Poppins', Verdana, Arial, Helvetica, sans-serif;
 
 $font-size-base : 16;
+
+.max-width{
+    max-width: 1330px;
+    margin: 0 auto;
+}
 
 .hidden{
     position: absolute;

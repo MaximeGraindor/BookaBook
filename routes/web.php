@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => ['auth', 'verified']], function(){
+    Route::get('/', [HomeController::class, 'show'])->name('home');
 });
-Route::get('/home', function () {
-    return Auth::user()->group;
-});
+

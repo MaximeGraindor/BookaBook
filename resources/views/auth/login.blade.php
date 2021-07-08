@@ -55,7 +55,7 @@
                         @endif
                     </div>
                     <div class="login-form-submit">
-                        <input type="submit" id="submit" class="submit" name="submit" value="S'inscrire">
+                        <input type="submit" id="submit" class="submit" name="submit" value="Se connecter">
                     </div>
                 </form>
             </div>
