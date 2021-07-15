@@ -5,6 +5,8 @@
     display: flex;
     justify-content: space-between;
     margin-top: 2rem;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 16px -13px black;
     .header-title{
         font-size: pxToRem(25);
         padding-right: 2rem;
@@ -37,12 +39,17 @@
 
 .header-menu{
     display: flex;
-    gap: 2rem;
+    gap: 0.2rem;
     .header-menu-item{
         .header-menu-link{
             text-decoration: none;
             color: black;
             font-size: pxToRem(20);
+            padding: 0.4rem 0.9rem;
+            &:hover{
+                background-color: $color-blue-light;
+                border-radius: 5px;
+            }
         }
     }
 }

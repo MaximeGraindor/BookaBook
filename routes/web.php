@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -17,5 +17,6 @@ use App\Http\Controllers\HomeController;
 
 Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::get('/', [HomeController::class, 'show'])->name('home');
+    Route::get('/books', [BookController::class, 'index'])->name('book.index');
 });
 

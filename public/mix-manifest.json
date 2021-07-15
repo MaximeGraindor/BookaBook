@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/img/Logo_HEPL.png": "/img/Logo_HEPL.png",
-    "/img/register-background.jpg": "/img/register-background.jpg"
+    "/img/register-background.jpg": "/img/register-background.jpg",
+    "/img/user-default-picture.svg": "/img/user-default-picture.svg"
 }

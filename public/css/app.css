@@ -71,6 +71,11 @@ table {
   border-width: 0;
 }
 
+.active-header-menu {
+  background-color: #b8d0ff;
+  border-radius: 5px;
+}
+
 body {
   font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
   font-size: 16px;
@@ -309,6 +314,8 @@ body {
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 16px -13px black;
 }
 .header .header-title {
   font-size: 1.5625rem;
@@ -341,12 +348,17 @@ body {
 
 .header-menu {
   display: flex;
-  gap: 2rem;
+  gap: 0.2rem;
 }
 .header-menu .header-menu-item .header-menu-link {
   text-decoration: none;
   color: black;
   font-size: 1.25rem;
+  padding: 0.4rem 0.9rem;
+}
+.header-menu .header-menu-item .header-menu-link:hover {
+  background-color: #b8d0ff;
+  border-radius: 5px;
 }
 
 .header-profil {
@@ -366,4 +378,41 @@ body {
 }
 .header-profil-img img {
   width: 150%;
+}
+
+.books-title {
+  font-size: 1.5625rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.books-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.book-item {
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 2px 2px 16px -13px black;
+}
+
+.book-item-picture {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.book-item-picture img {
+  width: auto;
+  border: 1px solid black;
+  height: 250px;
+}
+
+.book-item-info {
+  background-color: #b8d0ff;
+  padding: 1rem;
+  border-radius: 0 0 3px 3px;
 }
