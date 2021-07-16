@@ -7,11 +7,11 @@
     <title>Book a Book - @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
 </head>
-<body>
+<body class="main-content">
     <header class="max-width header">
         <div class="header-left">
             <h1 class="header-title">
-                Book a book <span class="hidden">- Accueil</span>
+                Book a book <span class="hidden">- @yield('title')</span>
             </h1>
             <nav class="header-nav">
                 <h2 class="hidden">
@@ -19,13 +19,10 @@
                 </h2>
                 <ul class="header-menu">
                     <li class="header-menu-item">
-                        <a href="#" class="header-menu-link {{ (request()->is('books')) ? 'active-header-menu' : '' }}">Livres</a>
+                        <a href="/books" class="header-menu-link {{ (request()->is('books')) ? 'active-header-menu' : '' }}">Livres</a>
                     </li>
                     <li class="header-menu-item">
-                        <a href="#" class="header-menu-link">Panier</a>
-                    </li>
-                    <li class="header-menu-item">
-                        <a href="#" class="header-menu-link">Commandes</a>
+                        <a href="/cart" class="header-menu-link">Panier</a>
                     </li>
                 </ul>
             </nav>

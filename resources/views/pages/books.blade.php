@@ -7,205 +7,36 @@
                 Livres obligatoires
             </h2>
             <div class="books-wrapper">
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/choixTypographiques.jpg') }}" alt="Photo du livre">
+                @foreach ($books as $book)
+                    @if($book->required === 1)
+                    <div class="book-item">
+                        <a href="{{'books/' . $book->slug}}" class="book-item-picture">
+                            <img src="{{ asset('/storage/books/' . $book->cover_path) }}" alt="Photo du livre">
+                        </a>
+                        <div class="book-item-info">
+                            <span>Ajouter au panier</span>
+                        </div>
                     </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/communicationEtImage.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/CSS3Flexbox.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/choixTypographiques.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/communicationEtImage.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/CSS3Flexbox.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/choixTypographiques.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/communicationEtImage.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/CSS3Flexbox.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/choixTypographiques.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/communicationEtImage.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/CSS3Flexbox.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-            </div>
+                    @endif
+                @endforeach
         </section>
         <section>
             <h2 class="books-title">
                 Livres Facultatifs
             </h2>
             <div class="books-wrapper">
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/choixTypographiques.jpg') }}" alt="Photo du livre">
+                @foreach ($books as $book)
+                    @if($book->required === 0)
+                    <div class="book-item">
+                        <a href="{{'books/' . $book->slug}}" class="book-item-picture">
+                            <img src="{{ asset('/storage/books/' . $book->cover_path) }}" alt="Photo du livre">
+                        </a>
+                        <div class="book-item-info">
+                            <span>Titre du livre</span>
+                        </div>
                     </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/communicationEtImage.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/CSS3Flexbox.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/choixTypographiques.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/communicationEtImage.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/CSS3Flexbox.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/choixTypographiques.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/communicationEtImage.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/CSS3Flexbox.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/choixTypographiques.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/communicationEtImage.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
-                <div class="book-item">
-                    <div class="book-item-picture">
-                        <img src="{{ asset('/storage/books/CSS3Flexbox.jpg') }}" alt="Photo du livre">
-                    </div>
-                    <div class="book-item-info">
-                        <span>Titre du livre</span>
-                    </div>
-                </div>
+                    @endif
+                @endforeach
             </div>
         </section>
     </div>

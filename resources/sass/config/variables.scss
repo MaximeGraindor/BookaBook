@@ -25,6 +25,9 @@ $color-blue-light : #b8d0ff;
     background-color: $color-blue-light;
     border-radius: 5px;
 }
+.main-content{
+    padding: 2rem
+}
 
 @function pxToRem($value){
     @return $value/$font-size-base + rem;

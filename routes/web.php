@@ -17,6 +17,8 @@ use App\Http\Controllers\HomeController;
 
 Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::get('/', [HomeController::class, 'show'])->name('home');
+
     Route::get('/books', [BookController::class, 'index'])->name('book.index');
+    Route::get('/books/{book:slug}', [BookController::class, 'show'])->name('book.show');
 });
 
