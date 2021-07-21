@@ -14,11 +14,17 @@
                             <img src="{{ asset('/storage/books/' . $book->cover_path) }}" alt="Photo du livre">
                         </a>
                         <div class="book-item-info">
-                            <span>Ajouter au panier</span>
+                            <form action="/order/store" method="post">
+                                @csrf
+                                <button type="submit">Ajouter</button>
+                                <input type="hidden" name="bookId"  value="{{$book->id}}">
+                            </form>
+                            <span>{{$book->student_price}}€</span>
                         </div>
                     </div>
                     @endif
                 @endforeach
+            </div>
         </section>
         <section>
             <h2 class="books-title">
@@ -27,14 +33,19 @@
             <div class="books-wrapper">
                 @foreach ($books as $book)
                     @if($book->required === 0)
-                    <div class="book-item">
-                        <a href="{{'books/' . $book->slug}}" class="book-item-picture">
-                            <img src="{{ asset('/storage/books/' . $book->cover_path) }}" alt="Photo du livre">
-                        </a>
-                        <div class="book-item-info">
-                            <span>Titre du livre</span>
+                        <div class="book-item">
+                            <a href="{{'books/' . $book->slug}}" class="book-item-picture">
+                                <img src="{{ asset('/storage/books/' . $book->cover_path) }}" alt="Photo du livre">
+                            </a>
+                            <div class="book-item-info">
+                                <form action="/order/store" method="post">
+                                    @csrf
+                                    <button type="submit">Ajouter</button>
+                                    <input type="hidden" name="bookId"  value="{{$book->id}}">
+                                </form>
+                                <span>{{$book->student_price}}€</span>
+                            </div>
                         </div>
-                    </div>
                     @endif
                 @endforeach
             </div>

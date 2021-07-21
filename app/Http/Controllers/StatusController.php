@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
+use App\Models\Status;
 use Illuminate\Http\Request;
 
-class BookController extends Controller
+class StatusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
-        return view('pages.books', compact('books'));
+        //
     }
 
     /**
@@ -42,23 +41,21 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Book  $book
+     * @param  \App\Models\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function show(Book $book)
+    public function show(Status $status)
     {
-        //return $book;
-        $randomBooks = Book::all()->shuffle()->take(rand(5, 5));
-        return view('pages.book', compact('book', 'randomBooks'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Book  $book
+     * @param  \App\Models\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function edit(Book $book)
+    public function edit(Status $status)
     {
         //
     }
@@ -67,10 +64,10 @@ class BookController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Book  $book
+     * @param  \App\Models\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, Status $status)
     {
         //
     }
@@ -78,10 +75,10 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Book  $book
+     * @param  \App\Models\Status  $status
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Book $book)
+    public function destroy(Status $status)
     {
         //
     }

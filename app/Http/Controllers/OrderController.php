@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
+use App\Models\Order;
+use App\Models\Status;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class BookController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +16,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::all();
-        return view('pages.books', compact('books'));
+        //
     }
 
     /**
@@ -36,29 +37,47 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $draftOrder = Order::whereHas('status', function($query){
+                $query->where('name', 'Brouillon');
+            })
+            ->where('user_id', Auth::user()->id)
+            ->first();
+
+        if($draftOrder){
+            $draftOrder->books()->attach($request->bookId, ['quantity' => 1]);
+        }else{
+            $order = new Order();
+            $order->number = '2021-2022-1';
+            $order->user_id = Auth::user()->id;
+            $order->save();
+
+            $order->books()->attach($request->bookId, ['quantity' => 1]);
+            $order->status()->attach(Status::where('name', 'Brouillon')->first());
+        }
+
+
+
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Book  $book
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Book $book)
+    public function show(Order $order)
     {
-        //return $book;
-        $randomBooks = Book::all()->shuffle()->take(rand(5, 5));
-        return view('pages.book', compact('book', 'randomBooks'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Book  $book
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit(Book $book)
+    public function edit(Order $order)
     {
         //
     }
@@ -67,10 +86,10 @@ class BookController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Book  $book
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, Order $order)
     {
         //
     }
@@ -78,10 +97,10 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Book  $book
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Book $book)
+    public function destroy(Order $order)
     {
         //
     }

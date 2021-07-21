@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +22,9 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
 
     Route::get('/books', [BookController::class, 'index'])->name('book.index');
     Route::get('/books/{book:slug}', [BookController::class, 'show'])->name('book.show');
+
+    Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
+
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 });
 

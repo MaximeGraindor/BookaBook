@@ -22,7 +22,7 @@
                         <a href="/books" class="header-menu-link {{ (request()->is('books')) ? 'active-header-menu' : '' }}">Livres</a>
                     </li>
                     <li class="header-menu-item">
-                        <a href="/cart" class="header-menu-link">Panier</a>
+                        <a href="/cart" class="header-menu-link {{ (request()->is('cart')) ? 'active-header-menu' : '' }}">Panier</a>
                     </li>
                 </ul>
             </nav>

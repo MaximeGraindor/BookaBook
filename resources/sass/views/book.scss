@@ -1,0 +1,46 @@
+.book-breadcrumb{
+    margin: 2rem 0;
+    a{
+        /* &::before{
+            content: ">";
+            display: inline-block;
+            margin-right: 0.5rem;
+        } */
+        &::after{
+            content: ">";
+            display: inline-block;
+            margin-right: 0.5rem;
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+.book-content{
+    display: flex;
+    gap: 2rem;
+}
+
+.book-content-cover{
+    img{
+        max-width: 350px;
+        height: auto;
+        box-shadow: 2px 2px 16px -13px black;
+    }
+}
+
+.book-content-infos{
+    .book-title{
+        font-size: pxToRem(25);
+        margin-bottom: 2rem;
+        font-weight: 600;
+    }
+}
+
+.book-random{
+    .book-random-title{
+        font-size: pxToRem(25);
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        font-weight: 600;
+    }
+}
