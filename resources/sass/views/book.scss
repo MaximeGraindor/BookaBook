@@ -34,6 +34,12 @@
         margin-bottom: 2rem;
         font-weight: 600;
     }
+    li{
+        margin-bottom: 0.7rem;
+        .book-content-infos-title{
+            font-weight: 600;
+        }
+    }
 }
 
 .book-random{

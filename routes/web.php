@@ -1,10 +1,13 @@
 <?php
 
+use App\Models\OrderStatus;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CartController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderStatusController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +23,14 @@ use App\Http\Controllers\OrderController;
 Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::get('/', [HomeController::class, 'show'])->name('home');
 
+    Route::get('/profil/{user:slug}', [UserController::class, 'show'])->name('user.show');
+
     Route::get('/books', [BookController::class, 'index'])->name('book.index');
     Route::get('/books/{book:slug}', [BookController::class, 'show'])->name('book.show');
 
     Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
+    Route::post('/order/{order:id}/status', [OrderStatusController::class, 'update'])->name('orderStatus.update');
+
 
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 });

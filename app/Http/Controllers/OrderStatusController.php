@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use App\Models\Status;
 use App\Models\OrderStatus;
 use Illuminate\Http\Request;
 
@@ -67,9 +69,11 @@ class OrderStatusController extends Controller
      * @param  \App\Models\OrderStatus  $orderStatus
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, OrderStatus $orderStatus)
+    public function update(Request $request, OrderStatus $orderStatus, Order $order)
     {
-        //
+        //return $request;
+        $order->status()->sync(Status::where('name', $request->status)->first());
+        return $order->load('status');
     }
 
     /**

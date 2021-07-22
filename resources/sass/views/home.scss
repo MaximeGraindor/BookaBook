@@ -1,6 +1,6 @@
 .header{
     background-color: white;
-    padding: 0.8rem 2rem;
+    padding: 0.6rem 2rem;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
@@ -15,11 +15,11 @@
             content: "";
             display: block;
             width: 1px;
-            height: 76px;
+            height: 70px;
             background-color: black;
             position: absolute;
             right: 0;
-            top: -26px;
+            top: -23px;
         }
     }
 }
@@ -43,7 +43,7 @@
         .header-menu-link{
             text-decoration: none;
             color: black;
-            font-size: pxToRem(20);
+            font-size: pxToRem(18);
             padding: 0.4rem 0.9rem;
             &:hover{
                 background-color: $color-blue-light;
@@ -56,10 +56,12 @@
 .header-profil{
     display: flex;
     align-items: center;
+    text-decoration: none;
+    color: black;
 
     .header-profil-name{
         margin-right: 1.2rem;
-        font-size: pxToRem(20);
+        font-size: pxToRem(18);
     }
 }
 

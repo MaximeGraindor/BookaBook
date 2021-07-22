@@ -28,12 +28,12 @@
             </nav>
         </div>
         <div class="header-right">
-            <div class="header-profil">
+            <a href="/profil/{{Auth::user()->slug}}" class="header-profil">
                 <span class="header-profil-name">{{ Auth::user()->firstname }} {{ Auth::user()->name }}</span>
                 <div class="header-profil-img">
-                    <img src="./img/register-background.jpg" alt="">
+                    <img src="/img/register-background.jpg" alt="">
                 </div>
-            </div>
+            </a>
         </div>
     </header>
 

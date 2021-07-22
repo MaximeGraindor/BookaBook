@@ -13,7 +13,7 @@
     gap: 2rem;
     align-items: flex-start;
     .cart-list-item{
-        flex: 80%;
+        flex: 75%;
     }
 }
 
@@ -24,6 +24,7 @@
     display: flex;
     gap: 2rem;
     box-shadow: 2px 2px 16px -13px black;
+    border-radius: 5px;
     .cart-item-picture{
         img{
             width: 70px;
@@ -52,15 +53,17 @@
 }
 
 .cart-total{
-    flex: 20%;
+    flex: 25%;
     background-color: white;
     padding: 1rem;
     box-shadow: 2px 2px 16px -13px black;
     box-sizing: border-box;
+    border-radius: 5px;
 
     &-title{
         font-size: pxToRem(16);
         font-weight: 600;
+        margin-bottom: 1rem;
     }
 }
 
@@ -80,5 +83,24 @@
             color: white;
             cursor: pointer;
         }
+    }
+}
+
+.cart-total-summary{
+    li{
+        margin-top: 0.5rem;
+    }
+    span{
+        margin-right: 0.5rem;
+    }
+
+    &:after{
+        content: "";
+        width: 100%;
+        height: 1px;
+        background-color: black;
+        display: block;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
     }
 }

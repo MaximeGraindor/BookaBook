@@ -9,6 +9,10 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'amount',
+    ];
+
     public function status()
     {
         return $this->belongsToMany(Status::class, 'order_statuses');

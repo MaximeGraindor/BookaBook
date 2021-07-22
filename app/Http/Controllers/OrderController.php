@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Order;
 use App\Models\Status;
 use Illuminate\Http\Request;
@@ -45,17 +46,17 @@ class OrderController extends Controller
 
         if($draftOrder){
             $draftOrder->books()->attach($request->bookId, ['quantity' => 1]);
+            $draftOrder->update(['amount' => ($draftOrder->amount + (Book::where('id', $request->bookId)->first())->student_price)]);
         }else{
             $order = new Order();
             $order->number = '2021-2022-1';
+            $order->amount = (Book::where('id', $request->bookId)->first())->student_price;
             $order->user_id = Auth::user()->id;
             $order->save();
 
             $order->books()->attach($request->bookId, ['quantity' => 1]);
             $order->status()->attach(Status::where('name', 'Brouillon')->first());
         }
-
-
 
         return redirect()->back();
     }

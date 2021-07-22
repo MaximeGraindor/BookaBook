@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
         User::insert([
             'firstname' => 'Xavier',
             'name' => 'Spirlet',
+            'slug' => 'xavierspirlet',
             'email' => 'xavier.spirlet@hepl.be',
             'group' => '0',
             'password' => Hash::make('password'),
@@ -29,6 +30,7 @@ class UserSeeder extends Seeder
         User::insert([
             'firstname' => 'Maxime',
             'name' => 'Graindor',
+            'slug' => 'maximegraindor',
             'email' => 'maxime.graindor@student.hepl.be',
             'group' => '2384',
             'password' => Hash::make('password'),

@@ -15,14 +15,26 @@
                 <h2 class="book-title">
                     {{ $book->name }}
                 </h2>
-                <dl>
-                    <dt>ISBN&nbsp;:</dt>
-                    <dd>{{$book->ISBN}}</dd>
-                    <dt>Éditeur&nbsp;:</dt>
-                    <dd>{{$book->publisher}}</dd>
-                    <dt>Obligatoire&nbsp;:</dt>
-                    <dd>{{$book->required ? 'oui' : 'non'}}</dd>
-                </dl>
+                <ul>
+                    <li>
+                        <span class="book-content-infos-title">ISBN&nbsp;: </span>{{$book->ISBN}}
+                    </li>
+                    <li>
+                        <span class="book-content-infos-title">Auteur(s)&nbsp;: </span>
+                        @foreach ( $book->authors as $author )
+                            <span>{{ $author->name }}</span>
+                        @endforeach
+                    </li>
+                    <li>
+                        <span class="book-content-infos-title">Éditeur&nbsp;: </span>{{$book->publisher->name}}
+                    </li>
+                    <li>
+                        <span class="book-content-infos-title">Obligatoire&nbsp;: </span>{{$book->required ? 'oui' : 'non'}}
+                    </li>
+                    <li>
+                        <span class="book-content-infos-title">Détails d'édition&nbsp;: </span>{{$book->editing_details ? $book->editing_details : 'Pas d\'informations sur supplémentaire'}}
+                    </li>
+                </ul>
             </div>
         </section>
         <section class="book-random">
@@ -35,7 +47,12 @@
                             <img src="{{ asset('/storage/books/' . $randomBook->cover_path) }}" alt="Photo du livre">
                         </a>
                         <div class="book-item-info">
-                            <span>Ajouter au panier</span>
+                            <form action="/order/store" method="post">
+                                @csrf
+                                <button type="submit">Ajouter</button>
+                                <input type="hidden" name="bookId"  value="{{$randomBook->id}}">
+                            </form>
+                            <span>{{$randomBook->student_price}}€</span>
                         </div>
                     </div>
                     @endif
