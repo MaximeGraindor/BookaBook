@@ -19,6 +19,7 @@ class User extends Authenticatable
     protected $fillable = [
         'firstname',
         'name',
+        'picture',
         'email',
         'group',
         'password',
@@ -42,4 +43,29 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'role_users');
+    }
+
+    // ATTRIBUTES
+    public function getIsTeacherAttribute()
+    {
+        return (bool) $this->roles->filter(function($role){
+            return $role->name === 'Professeur';
+        })->count();
+
+    }
+
+    public function getIsStudentAttribute()
+    {
+        return (bool)$this->roles->filter(function ($role) {
+            return $role->name === 'Étudiant';
+        })->count();
+    }
 }

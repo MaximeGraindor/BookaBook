@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
         User::insert([
             'firstname' => 'Xavier',
             'name' => 'Spirlet',
+            'picture' => 'picture-default.png',
             'slug' => 'xavierspirlet',
             'email' => 'xavier.spirlet@hepl.be',
             'group' => '0',
@@ -30,6 +31,7 @@ class UserSeeder extends Seeder
         User::insert([
             'firstname' => 'Maxime',
             'name' => 'Graindor',
+            'picture' => 'picture-default.png',
             'slug' => 'maximegraindor',
             'email' => 'maxime.graindor@student.hepl.be',
             'group' => '2384',

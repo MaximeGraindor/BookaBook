@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -46,6 +48,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        $user->load('orders.status');
         return view('pages.profil', compact('user'));
     }
 
@@ -57,7 +60,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('pages.user.edit', compact('user'));
     }
 
     /**
@@ -69,7 +72,39 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user = User::where('id', Auth::user()->id)->first();
+
+        $request->validate([
+            'firstname' => 'unique:users|max:15',
+            'name' => 'unique:users|max:15',
+            'email' => 'unique:users|max:15',
+            'group' => 'unique:users',
+            'picture' => 'image|mimes:jpg,png,jpeg'
+        ]);
+
+        if($request->firstname){
+            $user->update([
+                'firstname' => $request->firstname,
+            ]);
+        }
+        if($request->name){
+            $user->update([
+                'name' => $request->name
+            ]);
+        }
+        if($request->email){
+            $user->update([
+                'email' => $request->email,
+            ]);
+        }
+        if($request->group){
+            $user->update([
+                'group' => $request->group
+            ]);
+        }
+
+        return redirect()->route('user.show', ['user' => $user->slug]);
+
     }
 
     /**

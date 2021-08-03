@@ -19,18 +19,34 @@
                                 <p class="cart-item-price">{{$book->student_price}}€</p>
                             </div>
                             <p class="cart-item-ISBN">ISBN&nbsp;: {{$book->ISBN}}</p>
+                            <div>
+                                <form action="/order/{{$book->id}}/quantity" method="post" class="cart-item-form">
+                                    @csrf
+                                    <label for="quantity">Quantité</label>
+                                    <select name="quantity" id="quantity">
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            <option value="{{$i}}" {{ $i === $book->pivot->quantity ? 'selected' : 'help' }}>{{$i}}</option>
+                                        @endfor
+                                    </select>
+                                    <input type="submit" value="Mettre à jour">
+                                </form>
+                                <form action="/order/{{$book->id}}/delete" method="post">
+                                    @csrf
+                                    <input type="submit" value="Supprimer">
+                                </form>
+                            </div>
                         </div>
                     </div>
                     @endforeach
                 </div>
                 <div class="cart-total">
                     <p class="cart-total-title">
-                        Total du panier
+                        Récapitulatif
                     </p>
                     <ul class="cart-total-summary">
                         @foreach ($draftOrder->books as $book)
                             <li>
-                                <span>1x</span>{{Str::limit($book->name, $limit = 20, $end = '...')}} <span>{{$book->student_price}}</span>
+                                <span>{{$book->pivot->quantity}}x&nbsp;{{Str::limit($book->name, $limit = 20, $end = '...')}}</span> <span>{{number_format($book->student_price * $book->pivot->quantity, 2)}}€</span>
                             </li>
                         @endforeach
                     </ul>

@@ -21,9 +21,18 @@
                     <li class="header-menu-item">
                         <a href="/books" class="header-menu-link {{ (request()->is('books')) ? 'active-header-menu' : '' }}">Livres</a>
                     </li>
-                    <li class="header-menu-item">
-                        <a href="/cart" class="header-menu-link {{ (request()->is('cart')) ? 'active-header-menu' : '' }}">Panier</a>
-                    </li>
+                    @can('isTeacher')
+                        <li class="header-menu-item">
+                            <a href="/students" class="header-menu-link {{ (request()->is('students')) ? 'active-header-menu' : '' }}">Étudiant</a>
+                        </li>
+                        <li class="header-menu-item">
+                            <a href="/orders" class="header-menu-link {{ (request()->is('orders')) ? 'active-header-menu' : '' }}">Commandes</a>
+                        </li>
+                    @elsecan('isStudent')
+                        <li class="header-menu-item">
+                            <a href="/cart" class="header-menu-link {{ (request()->is('cart')) ? 'active-header-menu' : '' }}">Panier</a>
+                        </li>
+                    @endcan
                 </ul>
             </nav>
         </div>
@@ -31,7 +40,7 @@
             <a href="/profil/{{Auth::user()->slug}}" class="header-profil">
                 <span class="header-profil-name">{{ Auth::user()->firstname }} {{ Auth::user()->name }}</span>
                 <div class="header-profil-img">
-                    <img src="/img/register-background.jpg" alt="">
+                    <img src="{{ asset('/storage/users/' . Auth::user()->picture) }}" alt="Photo de profil">
                 </div>
             </a>
         </div>

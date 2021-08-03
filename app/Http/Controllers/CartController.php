@@ -9,11 +9,12 @@ use Illuminate\Support\Facades\Auth;
 class CartController extends Controller
 {
     public function index(){
-        $draftOrder = Order::whereHas('status', function($query){
+        $draftOrder = Order::with('books')->whereHas('status', function($query){
             $query->where('name', 'Brouillon');
         })
         ->where('user_id', Auth::user()->id)
         ->first();
+
         return view('pages.cart', compact('draftOrder'));
     }
 }

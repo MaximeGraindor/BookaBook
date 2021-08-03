@@ -50,6 +50,34 @@
             font-weight: 600;
         }
     }
+    .cart-item-ISBN{
+        margin-bottom: 0.5rem;
+    }
+}
+
+.cart-item-form{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    select{
+        font-family: $font;
+        padding: 0.1rem 0.3rem;
+        border: 1px solid black;
+
+    }
+    input{
+        font-family: $font;
+        padding: 0.2rem 0.8rem;
+        background-color: #b8d0ff;
+        border: none;
+        cursor: pointer;
+        &:hover{
+            font-weight: 600;
+            background-color: #5d7ebe;
+            color: white;
+            cursor: pointer;
+        }
+    }
 }
 
 .cart-total{
@@ -89,6 +117,8 @@
 .cart-total-summary{
     li{
         margin-top: 0.5rem;
+        display: flex;
+        justify-content: space-between;
     }
     span{
         margin-right: 0.5rem;

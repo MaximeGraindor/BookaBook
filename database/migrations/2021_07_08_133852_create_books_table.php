@@ -18,8 +18,8 @@ class CreateBooksTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('ISBN');
-            $table->float('public_price');
-            $table->float('student_price');
+            $table->decimal('public_price');
+            $table->decimal('student_price');
             $table->text('editing_details')->nullable();
             $table->string('cover_path');
             $table->boolean('required');

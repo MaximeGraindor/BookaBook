@@ -1,0 +1,98 @@
+.profil-breadcrumb{
+    margin: 2rem 0;
+    span:not(:last-child){
+        &::after{
+            content: ">";
+            display: inline-block;
+            margin-right: 0.5rem;
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+.profil-title{
+    font-size: pxToRem(25);
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.profil-content{
+    display: flex;
+    gap: 2rem;
+}
+
+.profil-picture{
+    img{
+        width: 350px;
+        height: 350px;
+        object-fit: cover;
+    }
+}
+
+.profil-infos{
+    .profil-infos-name{
+        font-size: pxToRem(25);
+        margin-bottom: 2rem;
+        font-weight: 600;
+    }
+    li{
+        margin-bottom: 0.7rem;
+        .profil-infos-title{
+            font-weight: 600;
+        }
+    }
+}
+
+.profil-update{
+    a{
+        padding: 0.8rem 0.9rem;
+        display: block;
+        background-color: #b8d0ff;
+        color: black;
+        text-align: center;
+        text-decoration: none;
+        border: 1px solid;
+        border-radius: 5px;
+        cursor: pointer;
+        box-sizing: border-box;
+        width: 200px;
+        margin-top: 2rem;
+        &:hover{
+            background-color: #5d7ebe;
+            color: white;
+        }
+    }
+}
+
+.profil-order-title{
+    font-size: pxToRem(25);
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.profil-order-table{
+    width: 100%;
+    thead{
+        background-color: #b8d0ff;
+        font-weight: 600;
+        td{
+            padding: 0.8rem;
+        }
+    }
+    td{
+
+        border: 1px solid black;
+        a{
+            padding: 0.8rem;
+            display: block;
+            text-decoration: none;
+            color: black;
+        }
+    }
+    tbody{
+        tr:nth-child(even){
+            background-color: #dadada;
+        }
+    }
+}

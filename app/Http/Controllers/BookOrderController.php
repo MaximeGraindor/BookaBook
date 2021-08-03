@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
+use App\Models\Order;
 use App\Models\BookOrder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookOrderController extends Controller
 {
@@ -67,9 +70,28 @@ class BookOrderController extends Controller
      * @param  \App\Models\BookOrder  $bookOrder
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BookOrder $bookOrder)
+    public function update(Request $request, BookOrder $bookOrder, Book $book)
     {
-        //
+        $draftOrder = Order::with('books', 'status')
+        ->whereHas('status', function($query){
+            return $query->where('name', 'Brouillon');
+        })
+        ->where([['user_id', Auth::user()->id]])
+        ->first();
+
+        $draftOrder->books()->updateExistingPivot($book->id, [
+            'quantity' => $request->quantity
+        ]);
+
+        $totalAmount = 0;
+
+        foreach ($draftOrder->books as $bookItem) {
+            $totalAmount = $totalAmount + ($bookItem->student_price * $bookItem->pivot->quantity);
+        };
+
+        $draftOrder->update(['amount' => $totalAmount]);
+
+        return redirect()->back();
     }
 
     /**
@@ -78,8 +100,21 @@ class BookOrderController extends Controller
      * @param  \App\Models\BookOrder  $bookOrder
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BookOrder $bookOrder)
+    public function destroy(BookOrder $bookOrder, Book $book)
     {
-        //
+        $draftOrder = Order::whereHas('status', function($query){
+            $query->where('name', 'Brouillon');
+        })
+        ->where('user_id', Auth::user()->id)
+        ->first();
+
+        $draftOrder->update(['amount' => ($draftOrder->amount - $book->student_price)]);
+        $draftOrder->books()->detach($book->id);
+
+        if($draftOrder->books()->count() === 0){
+            $draftOrder->delete();
+        };
+
+        return redirect()->back();
     }
 }

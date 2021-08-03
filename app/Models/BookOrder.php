@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class BookOrder extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'quantity'
+    ];
 }

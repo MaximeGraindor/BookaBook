@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\CartConfirmed;
 use App\Models\Order;
 use App\Models\Status;
 use App\Models\OrderStatus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class OrderStatusController extends Controller
 {
@@ -71,9 +74,10 @@ class OrderStatusController extends Controller
      */
     public function update(Request $request, OrderStatus $orderStatus, Order $order)
     {
-        //return $request;
         $order->status()->sync(Status::where('name', $request->status)->first());
-        return $order->load('status');
+        Mail::to(Auth::user()->email)->send(new CartConfirmed($order));
+        $order->load('status');
+        return redirect('books');
     }
 
     /**

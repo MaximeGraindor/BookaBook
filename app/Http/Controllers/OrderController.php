@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Book;
+use App\Models\User;
 use App\Models\Order;
 use App\Models\Status;
+use App\Models\BookOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,7 +20,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::with('user', 'status')->get();
+
+        return view('pages.orders', compact('orders'));
     }
 
     /**
@@ -27,7 +32,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        return 'ceci est un test siouplé';
     }
 
     /**
@@ -44,12 +49,19 @@ class OrderController extends Controller
             ->where('user_id', Auth::user()->id)
             ->first();
 
+
+
         if($draftOrder){
-            $draftOrder->books()->attach($request->bookId, ['quantity' => 1]);
-            $draftOrder->update(['amount' => ($draftOrder->amount + (Book::where('id', $request->bookId)->first())->student_price)]);
+            if(BookOrder::where([['order_id', $draftOrder->id], ['book_id', $request->bookId]])->first()){
+                $bookOrder = BookOrder::where([['order_id', $draftOrder->id], ['book_id', $request->bookId]])->first();
+                $bookOrder->update(['quantity' => $bookOrder->quantity + 1]);
+            }else{
+                $draftOrder->books()->attach($request->bookId, ['quantity' => 1]);
+                $draftOrder->update(['amount' => ($draftOrder->amount + (Book::where('id', $request->bookId)->first())->student_price)]);
+            }
         }else{
             $order = new Order();
-            $order->number = '2021-2022-1';
+            $order->number = Carbon::now()->year .Carbon::now()->year+1 ;
             $order->amount = (Book::where('id', $request->bookId)->first())->student_price;
             $order->user_id = Auth::user()->id;
             $order->save();
@@ -67,9 +79,15 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show(Request $request)
     {
-        //
+        $order = Order::with('user', 'status', 'books')
+        ->where([
+            ['user_id',(User::where('slug', $request->segment(2))->first())->id],
+            ['number', $request->segment(4)]
+        ])->first();
+
+        return view('pages.order', compact('order'));
     }
 
     /**

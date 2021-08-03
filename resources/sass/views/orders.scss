@@ -1,0 +1,25 @@
+.orders-title{
+    font-size: pxToRem(25);
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.orders table{
+    width: 100%;
+    th{
+        background-color: #b8d0ff;
+        font-weight: 600;
+        padding: 0.8rem;
+        border: 1px solid black;
+    }
+    td{
+        padding: 0.8rem;
+        border: 1px solid black;
+    }
+    tbody{
+        tr:nth-child(even){
+            background-color: #f2f2f2;
+        }
+    }
+}

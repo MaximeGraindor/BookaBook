@@ -1,0 +1,15 @@
+.order{
+    .order-title{
+        font-size: pxToRem(25);
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        font-weight: 600;
+    }
+}
+
+.order-status-title, .order-recap-title{
+    font-size: pxToRem(20);
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}

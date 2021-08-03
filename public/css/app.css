@@ -382,7 +382,10 @@ body {
   overflow: hidden;
 }
 .header-profil-img img {
-  width: 150%;
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .books-title {
@@ -541,6 +544,33 @@ body {
 .cart-item-right div .cart-item-price {
   font-weight: 600;
 }
+.cart-item-right .cart-item-ISBN {
+  margin-bottom: 0.5rem;
+}
+
+.cart-item-form {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.cart-item-form select {
+  font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
+  padding: 0.1rem 0.3rem;
+  border: 1px solid black;
+}
+.cart-item-form input {
+  font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
+  padding: 0.2rem 0.8rem;
+  background-color: #b8d0ff;
+  border: none;
+  cursor: pointer;
+}
+.cart-item-form input:hover {
+  font-weight: 600;
+  background-color: #5d7ebe;
+  color: white;
+  cursor: pointer;
+}
 
 .cart-total {
   flex: 25%;
@@ -575,6 +605,8 @@ body {
 
 .cart-total-summary li {
   margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
 }
 .cart-total-summary span {
   margin-right: 0.5rem;
@@ -587,4 +619,138 @@ body {
   display: block;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
+}
+
+.profil-breadcrumb {
+  margin: 2rem 0;
+}
+.profil-breadcrumb span:not(:last-child)::after {
+  content: ">";
+  display: inline-block;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.profil-title {
+  font-size: 1.5625rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.profil-content {
+  display: flex;
+  gap: 2rem;
+}
+
+.profil-picture img {
+  width: 350px;
+  height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.profil-infos .profil-infos-name {
+  font-size: 1.5625rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+.profil-infos li {
+  margin-bottom: 0.7rem;
+}
+.profil-infos li .profil-infos-title {
+  font-weight: 600;
+}
+
+.profil-update a {
+  padding: 0.8rem 0.9rem;
+  display: block;
+  background-color: #b8d0ff;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid;
+  border-radius: 5px;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 200px;
+  margin-top: 2rem;
+}
+.profil-update a:hover {
+  background-color: #5d7ebe;
+  color: white;
+}
+
+.profil-order-title {
+  font-size: 1.5625rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.profil-order-table {
+  width: 100%;
+}
+.profil-order-table thead {
+  background-color: #b8d0ff;
+  font-weight: 600;
+}
+.profil-order-table thead td {
+  padding: 0.8rem;
+}
+.profil-order-table td {
+  border: 1px solid black;
+}
+.profil-order-table td a {
+  padding: 0.8rem;
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+.profil-order-table tbody tr:nth-child(even) {
+  background-color: #dadada;
+}
+
+.orders-title {
+  font-size: 1.5625rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.orders table {
+  width: 100%;
+}
+.orders table th {
+  background-color: #b8d0ff;
+  font-weight: 600;
+  padding: 0.8rem;
+  border: 1px solid black;
+}
+.orders table td {
+  padding: 0.8rem;
+  border: 1px solid black;
+}
+.orders table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.profilUpdate-title {
+  font-size: 1.5625rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.order .order-title {
+  font-size: 1.5625rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.order-status-title, .order-recap-title {
+  font-size: 1.25rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
 }
