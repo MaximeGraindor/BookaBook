@@ -20,7 +20,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::with('user', 'status')->get();
+        $orders = Order::with('user', 'status')->paginate(10);
 
         return view('pages.orders', compact('orders'));
     }
@@ -32,7 +32,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return 'ceci est un test siouplé';
+
     }
 
     /**
@@ -61,7 +61,7 @@ class OrderController extends Controller
             }
         }else{
             $order = new Order();
-            $order->number = Carbon::now()->year .Carbon::now()->year+1 ;
+            $order->number = Carbon::now()->year . (Carbon::now()->year+1) ;
             $order->amount = (Book::where('id', $request->bookId)->first())->student_price;
             $order->user_id = Auth::user()->id;
             $order->save();

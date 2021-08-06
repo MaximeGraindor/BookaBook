@@ -7,11 +7,16 @@
             Modifier mon profil
         </h2>
 
-        <form action="/profil/{{$user->slug}}/update" method="post">
+        <form action="/profil/{{$user->slug}}/update" method="post" enctype="multipart/form-data">
             @csrf
             <div class="profilUpdate-picture">
                 <label for="picture">Photo de profil</label>
                 <input type="file" id="picture" name="picture">
+                @error('picture')
+                    <span>
+                        {{$message}}
+                    </span>
+                @enderror
             </div>
             <div class="profilUpdate-firstname">
                 <label for="firstname">Prénom</label>

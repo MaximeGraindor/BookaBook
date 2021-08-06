@@ -1,0 +1,37 @@
+.bab-pagination{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    a, span{
+        font-family: $font;
+        font-size: 1.25rem;
+        color: black;
+        text-decoration: none;
+    }
+    a:hover:not(.pagination-next):not(.pagination-previous){
+        background-color: #5d7ebe;
+        color: white;
+        padding: 0.5rem;
+    }
+    .pagination-previous{
+        background-image: url('./../img/arrow-right.svg');
+        width: 20px;
+        height: 20px;
+        display: block;
+        transform: rotate(180deg);
+    }
+    .pagination-next{
+        background-image: url('./../img/arrow-right.svg');
+        width: 20px;
+        height: 20px;
+        display: block;
+    }
+    .active{
+        span{
+            color: #5d7ebe;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+    }
+}

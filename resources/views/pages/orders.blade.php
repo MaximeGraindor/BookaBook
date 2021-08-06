@@ -23,16 +23,29 @@
                 <tbody>
                     @foreach ($orders as $order)
                         <tr>
-                            <td>{{$order->number}}</td>
-                            <td>{{$order->user->name}} {{$order->user->firstname}}</td>
-                            <td>{{$order->user->group}}</td>
-                            <td>{{$order->amount}}€</td>
-                            <td>{{$order->status[0]->name}}</td>
-                            <td>{{$order->updated_at}}</td>
+                            <td>
+                                <a href="profil/{{$order->user->slug}}/order/{{$order->number}}">{{$order->number}}</a>
+                            </td>
+                            <td>
+                                <a href="profil/{{$order->user->slug}}/order/{{$order->number}}">{{$order->user->name}} {{$order->user->firstname}}</a>
+                            </td>
+                            <td>
+                                <a href="profil/{{$order->user->slug}}/order/{{$order->number}}">{{$order->user->group}}</a>
+                            </td>
+                            <td>
+                                <a href="profil/{{$order->user->slug}}/order/{{$order->number}}">{{$order->amount}}€</a>
+                            </td>
+                            <td>
+                                <a href="profil/{{$order->user->slug}}/order/{{$order->number}}">{{$order->status[0]->name}}</a>
+                            </td>
+                            <td>
+                                <a href="profil/{{$order->user->slug}}/order/{{$order->number}}">{{$order->updated_at}}</a>
+                            </td>
                         </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                    @endforeach
+                </tbody>
+            </table>
+            {{$orders->links('utils.paginate')}}
         </div>
     </div>
 @endsection

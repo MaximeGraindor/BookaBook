@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
+use Image;
 
 class UserController extends Controller
 {
@@ -79,8 +81,23 @@ class UserController extends Controller
             'name' => 'unique:users|max:15',
             'email' => 'unique:users|max:15',
             'group' => 'unique:users',
-            'picture' => 'image|mimes:jpg,png,jpeg'
+            'picture' => 'mimes:jpg,png,jpeg,gif'
         ]);
+
+        if($request->hasFile('picture')){
+
+
+            $img = $request->file('picture');
+            $nameImg = $img->hashName();
+
+            $img = Image::make($img)->resize(300, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $img->save('storage/users'. '\\' . $nameImg);
+            $user->update([
+                'picture' => $nameImg,
+            ]);
+        }
 
         if($request->firstname){
             $user->update([
@@ -102,6 +119,8 @@ class UserController extends Controller
                 'group' => $request->group
             ]);
         }
+
+
 
         return redirect()->route('user.show', ['user' => $user->slug]);
 
