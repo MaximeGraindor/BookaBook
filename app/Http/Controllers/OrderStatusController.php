@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\CartConfirmed;
+use App\Mail\OrderStatusChanged;
 use App\Models\Order;
 use App\Models\Status;
 use App\Models\OrderStatus;
@@ -74,7 +75,22 @@ class OrderStatusController extends Controller
      */
     public function update(Request $request, OrderStatus $orderStatus, Order $order)
     {
-        $order->status()->sync(Status::where('name', $request->status)->first());
+        $order->load('user', 'status', 'books');
+        $order->status()->attach((Status::where('id', $request->status)->first())->id);
+        Mail::to($order->user->email)->send(new OrderStatusChanged($order));
+        return redirect('orders');
+    }
+
+    /**
+     * Update the specified draft order to the waiting status.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\OrderStatus  $orderStatus
+     * @return \Illuminate\Http\Response
+     */
+    public function updateDraftOrder(Request $request, OrderStatus $orderStatus, Order $order)
+    {
+        $order->status()->sync(Status::where('name', 'Commandé')->first());
         Mail::to(Auth::user()->email)->send(new CartConfirmed($order));
         $order->load('status');
         return redirect('books');

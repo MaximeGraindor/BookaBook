@@ -11,6 +11,6 @@ class Status extends Model
 
     public function Order()
     {
-        return $this->belongsToMany(Order::class, 'order_statuses');
+        return $this->belongsToMany(Order::class, 'order_statuses')->withTimestamps();
     }
 }

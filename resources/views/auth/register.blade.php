@@ -82,6 +82,7 @@
                     </div>
                     <div class="register-form-submit">
                         <input type="submit" id="submit" class="submit" name="submit" value="S'inscrire">
+                        <input type="hidden" name="picture" value="picture-default.png">
                     </div>
                 </form>
             </div>

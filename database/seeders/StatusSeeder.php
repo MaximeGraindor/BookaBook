@@ -21,7 +21,7 @@ class StatusSeeder extends Seeder
             'updated_at' => Carbon::now()
         ]);
         Status::insert([
-            'name' => 'En attente',
+            'name' => 'Commandé',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -31,12 +31,12 @@ class StatusSeeder extends Seeder
             'updated_at' => Carbon::now()
         ]);
         Status::insert([
-            'name' => 'Prête',
+            'name' => 'Disponible',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
         Status::insert([
-            'name' => 'Récupéré',
+            'name' => 'Livrée',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);

@@ -53,10 +53,10 @@
                     <p>
                         {{ $draftOrder->amount }}€
                     </p>
-                    <form action="/order/{{$draftOrder->id}}/status" method="post" class="cart-form">
+                    <form action="/order/{{$draftOrder->id}}/status/waiting" method="post" class="cart-form">
                         @csrf
                         <input type="submit" value="Passer commande" class="cart-form-submit">
-                        <input type="hidden" name="status" value="En attente">
+                        <input type="hidden" name="status" value="2">
                     </form>
                 </div>
             </div>

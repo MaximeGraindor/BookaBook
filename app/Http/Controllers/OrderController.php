@@ -18,11 +18,14 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $orders = Order::with('user', 'status')->paginate(10);
+        $orders = Order::with('user', 'status')
+        ->where("number", "LIKE", '%' . $request->search . '%')
+        ->paginate(10);
+        $statuses = Status::all();
 
-        return view('pages.orders', compact('orders'));
+        return view('pages.orders', compact('orders', 'statuses'));
     }
 
     /**
@@ -61,7 +64,9 @@ class OrderController extends Controller
             }
         }else{
             $order = new Order();
-            $order->number = Carbon::now()->year . (Carbon::now()->year+1) ;
+            $LastNumberOfLastOrder = Order::all()->last() ? substr(((Order::all()->last())->number),8) : '' ;
+            //return substr((Order::all()->last())->number, 8);
+            $order->number = $LastNumberOfLastOrder ? Carbon::now()->year . (Carbon::now()->year+1) . ($LastNumberOfLastOrder+1) : Carbon::now()->year . (Carbon::now()->year+1) . 1;
             $order->amount = (Book::where('id', $request->bookId)->first())->student_price;
             $order->user_id = Auth::user()->id;
             $order->save();
@@ -110,7 +115,7 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+        return $request;
     }
 
     /**

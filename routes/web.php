@@ -29,12 +29,18 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::post('/profil/{user:slug}/update', [UserController::class, 'update'])->name('user.update');
     Route::get('/profil/{user:slug}/order/{order:number}', [OrderController::class, 'show'])->name('order.show');
 
+    Route::get('/students', [UserController::class, 'index'])->name('user.index');
+
     Route::get('/books', [BookController::class, 'index'])->name('book.index');
+    Route::get('/books/create', [BookController::class, 'create'])->name('book.create');
+    Route::post('/books/store', [BookController::class, 'store'])->name('book.store');
     Route::get('/books/{book:slug}', [BookController::class, 'show'])->name('book.show');
+    Route::get('/books/{book:slug}/edit', [BookController::class, 'edit'])->name('book.edit');
 
     Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
     Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
     Route::post('/order/{order:id}/status', [OrderStatusController::class, 'update'])->name('orderStatus.update');
+    Route::post('/order/{order:id}/status/waiting', [OrderStatusController::class, 'updateDraftOrder'])->name('orderStatus.updateDraftOrder');
     Route::post('/order/{book:id}/quantity', [BookOrderController::class, 'update'])->name('bookOrder.update');
     Route::post('/order/{book:id}/delete', [BookOrderController::class, 'destroy'])->name('bookOrder.destroy');
 

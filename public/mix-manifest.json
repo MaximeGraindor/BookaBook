@@ -1,9 +1,9 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
     "/img/add-to-basket.svg": "/img/add-to-basket.svg",
     "/img/arrow-right.svg": "/img/arrow-right.svg",
     "/img/Logo_HEPL.png": "/img/Logo_HEPL.png",
     "/img/register-background.jpg": "/img/register-background.jpg",
-    "/img/user-default-picture.svg": "/img/user-default-picture.svg"
+    "/img/user-default-picture.svg": "/img/user-default-picture.svg",
+    "/css/app.css": "/css/app.css"
 }

@@ -1,11 +1,6 @@
 .book-breadcrumb{
     margin: 2rem 0;
     a{
-        /* &::before{
-            content: ">";
-            display: inline-block;
-            margin-right: 0.5rem;
-        } */
         &::after{
             content: ">";
             display: inline-block;

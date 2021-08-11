@@ -11,7 +11,7 @@
         </h2>
         <div class="profil-content">
             <div class="profil-picture">
-                <img src="{{ asset('/storage/users/' . Auth::user()->picture) }}" alt="Photo de profil">
+                <img src="{{ asset('/storage/users/' . $user->picture) }}" alt="Photo de profil">
             </div>
             <div class="profil-infos">
                 <ul>
@@ -35,42 +35,42 @@
 
         </div>
 
-        <section class="profil-order">
-            <h2 class="profil-order-title">
-                Commandes
-            </h2>
-            <table class="profil-order-table">
-                <thead>
-                    <tr>
-                        <td>Numéro de commande</td>
-                        <td>Status</td>
-                        <td>Montant</td>
-                        <td>Date de commande</td>
-                        <td>Modification du statut</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ( $user->orders as $order)
+            <section class="profil-order">
+                <h2 class="profil-order-title">
+                    Commandes
+                </h2>
+                <table class="profil-order-table">
+                    <thead>
                         <tr>
-                            <td>
-                                <a href="/profil/{{Auth::user()->slug}}/order/{{$order->number}}">{{ $order->number }}</a>
-                            </td>
-                            <td>
-                                <a href="/profil/{{Auth::user()->slug}}/order/{{$order->number}}">{{ $order->status[0]->name }}</a>
-                            </td>
-                            <td>
-                                <a href="/profil/{{Auth::user()->slug}}/order/{{$order->number}}">{{ $order->amount }}€</a>
-                            </td>
-                            <td>
-                                <a href="/profil/{{Auth::user()->slug}}/order/{{$order->number}}">{{ date('d/m/Y h:m', strtotime($order->created_at)) }}</a>
-                            </td>
-                            <td>
-                                <a href="/profil/{{Auth::user()->slug}}/order/{{$order->number}}">{{ date('d/m/Y h:m', strtotime($order->status[0]->updated_at)) }}</a>
-                            </td>
+                            <td>Numéro de commande</td>
+                            <td>Status</td>
+                            <td>Montant</td>
+                            <td>Date de commande</td>
+                            <td>Modification du statut</td>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </section>
+                    </thead>
+                    <tbody>
+                        @foreach ( $user->orders as $order)
+                            <tr>
+                                <td>
+                                    <a href="/profil/{{$user->slug}}/order/{{$order->number}}">{{ $order->number }}</a>
+                                </td>
+                                <td>
+                                    <a href="/profil/{{$user->slug}}/order/{{$order->number}}">{{ $order->status[0]->name }}</a>
+                                </td>
+                                <td>
+                                    <a href="/profil/{{$user->slug}}/order/{{$order->number}}">{{ $order->amount }}€</a>
+                                </td>
+                                <td>
+                                    <a href="/profil/{{$user->slug}}/order/{{$order->number}}">{{ date('d/m/Y h:m', strtotime($order->created_at)) }}</a>
+                                </td>
+                                <td>
+                                    <a href="/profil/{{$user->slug}}/order/{{$order->number}}">{{ date('d/m/Y h:m', strtotime($order->status[0]->updated_at)) }}</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </section>
     </div>
 @endsection

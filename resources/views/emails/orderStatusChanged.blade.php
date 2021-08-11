@@ -1,7 +1,7 @@
 <section class="orderConfirmed">
     <h1> Book a Book</h1>
     <p>
-        Vous venez de confirmer votre panier.
+        Le statut de votre commande est passé à
     </p>
     <article>
         <h2>
