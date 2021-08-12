@@ -9,6 +9,23 @@ class Book extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'slug',
+        'ISBN',
+        'public_price',
+        'student_price',
+        'editing_details',
+        'cover_path',
+        'required',
+        'publisher_id',
+    ];
+
     public function orders()
     {
         return $this->belongsToMany(Order::class, 'book_orders')->withPivot('quantity')->withTimestamps();

@@ -1838,9 +1838,45 @@ module.exports = {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _partials_selectBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./partials/selectBox */ "./resources/js/partials/selectBox.js");
+// REQUIRES
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // IMPORTS
+
+
+
+_partials_selectBox__WEBPACK_IMPORTED_MODULE_0__.default.init();
+
+if (document.getElementById('cover')) {
+  var readSingleFile = function readSingleFile(e) {
+    var file = e.target.files[0];
+
+    if (!file) {
+      return;
+    }
+
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      var contents = e.target.result;
+      console.log(e.target.result);
+      displayContents(contents);
+    };
+
+    reader.readAsDataURL(file);
+  };
+
+  var displayContents = function displayContents(contents) {
+    var element = document.getElementById('coverPreview');
+    element.src = contents;
+    console.table(contents);
+  };
+
+  document.getElementById('cover').addEventListener('change', readSingleFile, false);
+}
 
 /***/ }),
 
@@ -1872,6 +1908,35 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/partials/selectBox.js":
+/*!********************************************!*\
+  !*** ./resources/js/partials/selectBox.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var selectBox = {
+  selectboxElt: document.querySelector('.selectbox'),
+  checkboxesElt: document.querySelector('.checkboxes '),
+  init: function init() {
+    this.showCheckboxes();
+  },
+  showCheckboxes: function showCheckboxes() {
+    var _this = this;
+
+    this.selectboxElt.addEventListener('click', function () {
+      _this.checkboxesElt.classList.toggle('checkboxesEl-on');
+    });
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (selectBox);
 
 /***/ }),
 
@@ -19355,6 +19420,18 @@ process.umask = function() { return 0; };
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
 /******/ 		};
 /******/ 	})();
 /******/ 	

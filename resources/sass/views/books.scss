@@ -22,11 +22,16 @@
         }
     }
 
+    .books-title{
+        margin: 0 ;
+    }
+
 }
 
 .books-title{
     font-size: pxToRem(25);
     font-weight: 600;
+    margin: 2rem 0 ;
 }
 
 .books-wrapper{

@@ -8,7 +8,7 @@
                     Livres obligatoires
                 </h2>
                 @can('isTeacher')
-                    <a href="/books/add" class="books-add">Ajouter un livre</a>
+                    <a href="/books/create" class="books-add">Ajouter un livre</a>
                 @endcan
             </div>
             <div class="books-wrapper">

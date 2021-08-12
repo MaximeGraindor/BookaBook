@@ -7,15 +7,19 @@
 
 .createBook-wrapper{
     display: flex;
+    align-items: flex-start;
     gap: 4rem;
 }
 
 .createBook-preview-wrapper{
     position: relative;
     width: 400px;
-    border: 2px solid black;
+    border: 1px solid black;
     display: block;
-    height: 600px;
+    img{
+        width: 100%;
+        vertical-align: bottom;
+    }
     span{
         position: absolute;
         left: 0;
@@ -31,9 +35,10 @@
     }
     label, span{
         font-size: pxToRem(18);
+        margin-bottom: 0.3rem;
     }
     input[type=text], input[type=file], select{
-        padding: pxToRem(5) pxToRem(6);
+        padding: pxToRem(8) pxToRem(10);
         width: 450px;
         box-sizing: border-box;
         border: 1px solid black;
@@ -45,5 +50,97 @@
 
     .required-wrapper{
         display: flex;
+        gap: 2rem;
+        margin-top: 0.8rem;
+    }
+
+    .createBook-form-publishingDetails{
+        grid-column: 1/3;
+        textarea{
+            width: 100%;
+            height: 200px;
+            resize: none;
+            box-sizing: border-box;
+            border-radius: pxToRem(3);
+            border: 1px solid black;
+            padding: pxToRem(8) pxToRem(10);
+            font-family: $font;
+            font-size: pxToRem(18);
+        }
+    }
+
+    .createBook-form-submit{
+        grid-column: 2/3;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .createBook-form-error{
+        display: block;
+        margin-top: 0.3rem;
+        font-size: pxToRem(15);
+        color: rgb(180, 0, 0);
+    }
+
+    .createBook-form-submit{
+        input{
+            background-color: transparent;
+            padding: 0.5rem 2rem;
+            background-color: #b8d0ff;
+            border: none;
+            color: black;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-sizing: border-box;
+            margin-left: 1rem;
+            font-family: $font;
+            font-size: pxToRem(18);
+            &:hover{
+                background-color: $color-blue-dark;
+                color: white !important;
+            }
+        }
+    }
+}
+
+.createBook-form-authors{
+    position: relative;
+
+    .selectbox{
+        position: relative;
+        .overSelect{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+    }
+
+    .checkboxesEl-on{
+        display: block !important;
+    }
+
+    .checkboxes{
+        display: none;
+        background-color: white;
+        border: 1px solid black;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 60px;
+        height: 300px;
+        border-radius: 0 0 5px 5px;
+        overflow: auto;
+        label{
+            display: block;
+            padding: pxToRem(8) pxToRem(10);
+            &:hover{
+                background-color: $color-blue-dark;
+                color: white;
+            }
+        }
     }
 }

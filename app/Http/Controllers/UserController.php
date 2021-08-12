@@ -78,16 +78,14 @@ class UserController extends Controller
         $user = User::where('id', Auth::user()->id)->first();
 
         $request->validate([
-            'firstname' => 'unique:users|max:15',
-            'name' => 'unique:users|max:15',
+            'firstname' => 'string',
+            'name' => 'string',
             'email' => 'unique:users|max:15',
-            'group' => 'unique:users',
+            'group' => 'string',
             'picture' => 'mimes:jpg,png,jpeg,gif'
         ]);
 
         if($request->hasFile('picture')){
-
-
             $img = $request->file('picture');
             $nameImg = $img->hashName();
 

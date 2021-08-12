@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Author;
 use App\Models\Book;
+use App\Models\Author;
 use App\Models\Publisher;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+
+use Image;
 
 class BookController extends Controller
 {
@@ -28,7 +31,8 @@ class BookController extends Controller
     public function create()
     {
         $authors = Author::all();
-        return view('pages.book.create-book');
+        $publishers = Publisher::all();
+        return view('pages.book.create-book', compact('authors', 'publishers'));
     }
 
     /**
@@ -39,7 +43,45 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $request->validate([
+            'cover' => 'required',
+            'title' => 'required|string',
+            'isbn' => 'required|unique:books|string|min:10',
+            'required' => 'required',
+            'publicPrice' => ['required','regex:/^(?:[1-9]\d+|\d)(?:\.\d\d)?$/'],
+            'studentPrice' => ['required', 'regex:/^(?:[1-9]\d+|\d)(?:\.\d\d)?$/'],
+            'publisher' => 'required',
+            'authors' => 'required|array|min:1',
+            'authors.*' => 'numeric',
+            'publishingDetails' => ''
+        ]);
+
+        $img = $request->file('cover');
+        $nameImg = $img->hashName();
+
+        $img = Image::make($img)->resize(300, null, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+        $img->save('storage/books'. '\\' . $nameImg);
+
+        $book = Book::create([
+            'cover_path' => $nameImg,
+            'name' => $request->title,
+            'slug' => Str::slug($request->title),
+            'ISBN' => $request->isbn,
+            'public_price' => floatval($request->publicPrice),
+            'student_price' => floatval($request->studentPrice),
+            'editings_details' => $request->publishingDetails,
+            'required' => $request->required === 'oui' ? 1 : 0,
+            'publisher_id' => $request->publisher,
+        ]);
+
+        foreach ($request->authors as $author) {
+            $authorId = (Author::where('name', $author)->first())->id;
+            $book->authors()->attach($authorId);
+        }
+
+        return redirect('books');
     }
 
     /**
