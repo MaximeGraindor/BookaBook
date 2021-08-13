@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::post('/books/store', [BookController::class, 'store'])->name('book.store');
     Route::get('/books/{book:slug}', [BookController::class, 'show'])->name('book.show');
     Route::get('/books/{book:slug}/edit', [BookController::class, 'edit'])->name('book.edit');
+    Route::put('/books/{book:slug}/update', [BookController::class, 'update'])->name('book.update');
 
     Route::get('/orders', [OrderController::class, 'index'])->name('order.index');
     Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');

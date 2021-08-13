@@ -30,9 +30,10 @@ class BookController extends Controller
      */
     public function create()
     {
+        $book = New Book();
         $authors = Author::all();
         $publishers = Publisher::all();
-        return view('pages.book.create-book', compact('authors', 'publishers'));
+        return view('pages.book.createOrUpdate-book', compact('book', 'authors', 'publishers'));
     }
 
     /**
@@ -105,8 +106,10 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
+        $authors = Author::all();
         $publishers = Publisher::all();
-        return view('pages.book.editBook', compact('book', 'publishers'));
+
+        return view('pages.book.createOrUpdate-book', compact('book', 'authors', 'publishers'));
     }
 
     /**
@@ -118,7 +121,54 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        //
+        //return $request;
+
+        if($request->title){
+            $book->update([
+                'name' => $request->title,
+            ]);
+            $book->update([
+                'slug' => Str::slug($request->title),
+            ]);
+        }
+        if($request->isbn){
+            $book->update([
+                'isbn' => $request->isbn
+            ]);
+        }
+        if($request->required){
+            $book->update([
+                'required' => $request->required === 'oui' ? 1 : 0
+            ]);
+        }
+        if($request->publicPrice){
+            $book->update([
+                'public_price' => $request->publicPrice,
+            ]);
+        }
+        if($request->studentPrice){
+            $book->update([
+                'student_price' => $request->studentPrice
+            ]);
+        }
+        if($request->publisher){
+            $book->update([
+                'publisher_id' => $request->publisher
+            ]);
+        }
+        if($request->authors){
+            foreach ($request->authors as $author) {
+                $book->authors()->sync((Author::where('name', $author)->first()->id));
+            }
+        }
+        if($request->publishingDetails){
+            $book->update([
+                'editing_details' => $request->publishingDetails
+            ]);
+        }
+
+        return redirect()->back();
+
     }
 
     /**

@@ -92,6 +92,7 @@ class OrderController extends Controller
             ['number', $request->segment(4)]
         ])->first();
 
+
         return view('pages.order', compact('order'));
     }
 
