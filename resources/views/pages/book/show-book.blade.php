@@ -15,6 +15,11 @@
                 <h2 class="book-title">
                     {{ $book->name }}
                 </h2>
+                <form action="/order/store" method="post">
+                    @csrf
+                    <input type="submit" value="Ajouter au panier" class="add-to-cart">
+                    <input type="hidden" name="bookId"  value="{{$book->id}}">
+                </form>
                 <ul>
                     <li>
                         <span class="book-content-infos-title">ISBN&nbsp;: </span>{{$book->ISBN}}
@@ -27,6 +32,12 @@
                     </li>
                     <li>
                         <span class="book-content-infos-title">Éditeur&nbsp;: </span>{{$book->publisher->name}}
+                    </li>
+                    <li>
+                        <span class="book-content-infos-title">Prix publique&nbsp;: </span>{{$book->public_price}}€
+                    </li>
+                    <li>
+                        <span class="book-content-infos-title">Prix d'étudiant&nbsp;: </span>{{$book->student_price}}€
                     </li>
                     <li>
                         <span class="book-content-infos-title">Obligatoire&nbsp;: </span>{{$book->required ? 'oui' : 'non'}}

@@ -20,7 +20,7 @@ class BookController extends Controller
     public function index()
     {
         $books = Book::all();
-        return view('pages.books', compact('books'));
+        return view('pages.book.index-book', compact('books'));
     }
 
     /**
@@ -95,7 +95,7 @@ class BookController extends Controller
     {
         $book->load('authors', 'publisher');
         $randomBooks = Book::all()->shuffle()->take(rand(5, 5));
-        return view('pages.book', compact('book', 'randomBooks'));
+        return view('pages.book.show-book', compact('book', 'randomBooks'));
     }
 
     /**

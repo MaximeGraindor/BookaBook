@@ -11,6 +11,16 @@
     flex-direction: column;
     flex: 0 0 50%;
 }
+
+.login-toLogin{
+    margin-bottom: pxToRem(40);
+    font-size: pxToRem(18);
+    a{
+        font-weight: bold;
+        color: #4d6492;
+    }
+}
+
 .register-right{
     background-image: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.7) 100%), url('./../img/register-background.jpg') ; /* W3C */
     background-repeat: no-repeat;
@@ -54,13 +64,16 @@
     }
     .register-logo-HEPL{
         width: 300px;
+        padding: 1rem;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
     }
 }
 
 .register-title{
     font-size: 3rem;
     font-weight: bold;
-    margin-bottom: pxToRem(50);
+    margin-bottom: pxToRem(20);
 }
 
 .register-form{

@@ -3,8 +3,10 @@ require('./bootstrap');
 
 // IMPORTS
 import selectBox from './partials/selectBox'
+import password from './partials/password'
 
 selectBox.init()
+password.init()
 
 
 if (document.getElementById('cover')) {

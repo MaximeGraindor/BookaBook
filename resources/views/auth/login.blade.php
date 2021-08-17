@@ -15,6 +15,9 @@
         <section class="login-left">
             <div class="login-left-wrapper">
                 <h2 class="login-title">Se connecter</h2>
+                <p class="login-toRegister">
+                    Pas encore de compte ? <a href="/register">Inscrivez-vous</a>
+                </p>
                 <form action="/login" method="post" class="login-form">
                     @csrf
                     <div class="login-form-email">
@@ -31,12 +34,16 @@
                     </div>
                     <div class="login-form-password">
                         <label for="password">Mot de passe</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            class="@if($errors->has('password'))login-input-error @endif"
-                            value="{{ old('password')}}">
+                        <div class="password-action">
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                class="@if($errors->has('password'))login-input-error @endif"
+                                value="{{ old('password')}}">
+                            <span class="password-action-showHide"></span>
+                        </div>
+
                         @error('password')
                             <span class="login-error">{{ $message }}</span>
                         @enderror

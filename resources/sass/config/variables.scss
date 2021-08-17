@@ -5,6 +5,10 @@ $font-size-base : 16;
 $color-blue-light : #b8d0ff;
 $color-blue-dark : #5d7ebe;
 
+@function pxToRem($value){
+    @return $value/$font-size-base + rem;
+}
+
 .max-width{
     max-width: 1330px;
     margin: 0 auto;
@@ -30,6 +34,22 @@ $color-blue-dark : #5d7ebe;
     padding: 2rem
 }
 
-@function pxToRem($value){
-    @return $value/$font-size-base + rem;
+.password-action{
+    position:relative;
+    .password-action-showHide{
+        position: absolute;
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background-image: url('/img/eye-password-show.svg');
+        background-size: 100%;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+    }
+    .hide-password{
+        background-image: url('/img/eye-password-hide.svg');
+    }
 }
+
+

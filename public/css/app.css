@@ -80,6 +80,24 @@ table {
   padding: 2rem;
 }
 
+.password-action {
+  position: relative;
+}
+.password-action .password-action-showHide {
+  position: absolute;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-image: url("/img/eye-password-show.svg");
+  background-size: 100%;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+.password-action .hide-password {
+  background-image: url("/img/eye-password-hide.svg");
+}
+
 body {
   font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
   font-size: 16px;
@@ -98,6 +116,15 @@ body {
   align-items: center;
   flex-direction: column;
   flex: 0 0 50%;
+}
+
+.login-toLogin {
+  margin-bottom: 2.5rem;
+  font-size: 1.125rem;
+}
+.login-toLogin a {
+  font-weight: bold;
+  color: #4d6492;
 }
 
 .register-right {
@@ -145,12 +172,15 @@ body {
 }
 .register-right .register-logo-HEPL {
   width: 300px;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
 }
 
 .register-title {
   font-size: 3rem;
   font-weight: bold;
-  margin-bottom: 3.125rem;
+  margin-bottom: 1.25rem;
 }
 
 .register-form div:not(:last-child) {
@@ -204,6 +234,15 @@ body {
   flex: 0 0 50%;
 }
 
+.login-toRegister {
+  margin-bottom: 2.5rem;
+  font-size: 1.125rem;
+}
+.login-toRegister a {
+  font-weight: bold;
+  color: #4d6492;
+}
+
 .login-right {
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), url("./../img/register-background.jpg");
   /* W3C */
@@ -249,18 +288,21 @@ body {
 }
 .login-right .login-logo-HEPL {
   width: 300px;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
 }
 
 .login-title {
   font-size: 3rem;
   font-weight: bold;
-  margin-bottom: 3.125rem;
+  margin-bottom: 1.25rem;
 }
 
 .login-form div:not(:last-child) {
   margin-bottom: 1.25rem;
 }
-.login-form input[type=email], .login-form input[type=password] {
+.login-form input[type=email], .login-form input[type=password], .login-form input[type=text] {
   padding: 0.5625rem 0.625rem;
   width: 450px;
   box-sizing: border-box;
@@ -526,6 +568,25 @@ body {
   margin-left: 0.5rem;
 }
 
+.add-to-cart {
+  padding: 0.5rem 1rem;
+  background-color: #b8d0ff;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  box-sizing: border-box;
+  font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+.add-to-cart:hover {
+  background-color: #5d7ebe;
+  color: white !important;
+}
+
 .book-content {
   display: flex;
   gap: 2rem;
@@ -539,7 +600,7 @@ body {
 
 .book-content-infos .book-title {
   font-size: 1.5625rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-weight: 600;
 }
 .book-content-infos li {
@@ -608,24 +669,44 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.cart-item-form {
+.cart-item-form-quantity {
   display: flex;
   align-items: center;
   gap: 0.4rem;
 }
-.cart-item-form select {
+.cart-item-form-quantity select {
   font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
   padding: 0.1rem 0.3rem;
   border: 1px solid black;
 }
-.cart-item-form input {
+.cart-item-form-quantity input {
   font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
   padding: 0.2rem 0.8rem;
   background-color: #b8d0ff;
   border: none;
   cursor: pointer;
 }
-.cart-item-form input:hover {
+.cart-item-form-quantity input:hover {
+  font-weight: 600;
+  background-color: #5d7ebe;
+  color: white;
+  cursor: pointer;
+}
+
+.cart-item-form-delete input {
+  font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
+  width: 35px;
+  height: 35px;
+  background-color: #ff7c7c7a;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-image: url("../../img/delete.svg");
+  background-size: 60%;
+  background-position: 8px center;
+  background-repeat: no-repeat;
+}
+border-ra .cart-item-form-delete input:hover {
   font-weight: 600;
   background-color: #5d7ebe;
   color: white;

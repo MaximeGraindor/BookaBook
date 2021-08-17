@@ -55,7 +55,7 @@
     }
 }
 
-.cart-item-form{
+.cart-item-form-quantity{
     display: flex;
     align-items: center;
     gap: 0.4rem;
@@ -71,6 +71,29 @@
         background-color: #b8d0ff;
         border: none;
         cursor: pointer;
+        &:hover{
+            font-weight: 600;
+            background-color: #5d7ebe;
+            color: white;
+            cursor: pointer;
+        }
+    }
+}
+
+.cart-item-form-delete{
+    input{
+        font-family: $font;
+        width: 35px;
+        height: 35px;
+        background-color: #ff7c7c7a;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        background-image: url('../../img/delete.svg');
+        background-size: 60%;
+        background-position: 8px center;
+        background-repeat: no-repeat;
+        border-ra
         &:hover{
             font-weight: 600;
             background-color: #5d7ebe;

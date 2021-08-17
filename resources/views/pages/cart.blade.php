@@ -20,7 +20,7 @@
                             </div>
                             <p class="cart-item-ISBN">ISBN&nbsp;: {{$book->ISBN}}</p>
                             <div>
-                                <form action="/order/{{$book->id}}/quantity" method="post" class="cart-item-form">
+                                <form action="/order/{{$book->id}}/quantity" method="post" class="cart-item-form-quantity">
                                     @csrf
                                     <label for="quantity">Quantité</label>
                                     <select name="quantity" id="quantity">
@@ -30,9 +30,9 @@
                                     </select>
                                     <input type="submit" value="Mettre à jour">
                                 </form>
-                                <form action="/order/{{$book->id}}/delete" method="post">
+                                <form action="/order/{{$book->id}}/delete" method="post" class="cart-item-form-delete">
                                     @csrf
-                                    <input type="submit" value="Supprimer">
+                                    <input type="submit" value="">
                                 </form>
                             </div>
                         </div>

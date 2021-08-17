@@ -6,6 +6,9 @@
         <section class="register-left">
             <div class="register-left-wrapper">
                 <h2 class="register-title">Inscription</h2>
+                <p class="login-toLogin">
+                    Déjà inscrit&nbsp;? <a href="/login">Connectez-vous</a>
+                </p>
                 <form action="/register" method="post" class="register-form">
                     @csrf
                     <div class="register-form-firstname">
@@ -58,24 +61,30 @@
                     </div>
                     <div class="register-form-password">
                         <label for="password">Mot de passe</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            class="@if($errors->has('password'))register-input-error @endif"
-                            value="{{ old('password')}}">
+                        <div class="password-action">
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                class="@if($errors->has('password'))register-input-error @endif"
+                                value="{{ old('password')}}">
+                                <span class="password-action-showHide"></span>
+                        </div>
                         @error('password')
                             <span class="register-error">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="register-form-password_confirmation">
                         <label for="password_confirmation">Confirmation du mot de passe</label>
-                        <input
-                        type="password"
-                        id="password_confirmation"
-                        name="password_confirmation"
-                        class="@if($errors->has('password_confirmation'))register-input-error @endif"
-                        value="{{ old('password_confirmation')}}">
+                        <div class="password-action">
+                            <input
+                            type="password"
+                            id="password_confirmation"
+                            name="password_confirmation"
+                            class="@if($errors->has('password_confirmation'))register-input-error @endif"
+                            value="{{ old('password_confirmation')}}">
+                            <span class="password-action-showHide"></span>
+                        </div>
                         @error('password_confirmation')
                             <span class="register-error">{{ $message }}</span>
                         @enderror

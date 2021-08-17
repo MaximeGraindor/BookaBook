@@ -13,7 +13,7 @@
         </article>
         <article class="order-recap">
             <h3 class="order-recap-title">
-                Récapitulatif de la commande
+                Récapitulatif de la commande&nbsp;- {{$order->amount}}€
             </h3>
             <div class="cart-list-item">
                 @foreach ($order->books as $book)

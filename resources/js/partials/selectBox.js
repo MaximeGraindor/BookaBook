@@ -7,9 +7,12 @@ const selectBox = {
     },
 
     showCheckboxes(){
-        this.selectboxElt.addEventListener('click', () => {
-            this.checkboxesElt.classList.toggle('checkboxesEl-on')
-        })
+        if(this.selectboxElt){
+            this.selectboxElt.addEventListener('click', () => {
+                this.checkboxesElt.classList.toggle('checkboxesEl-on')
+            })
+        }
+
     }
 }
 

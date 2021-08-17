@@ -19,7 +19,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all()->except(Auth::id());
-        return view('pages.user.indexUser', compact('users'));
+        return view('pages.user.index-user', compact('users'));
     }
 
     /**
@@ -52,7 +52,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         $user->load('orders.status');
-        return view('pages.profil', compact('user'));
+        return view('pages.user.show-user', compact('user'));
     }
 
     /**
@@ -63,7 +63,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('pages.user.edit', compact('user'));
+        return view('pages.user.edit-user', compact('user'));
     }
 
     /**

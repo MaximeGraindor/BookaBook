@@ -1843,12 +1843,15 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_selectBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./partials/selectBox */ "./resources/js/partials/selectBox.js");
+/* harmony import */ var _partials_password__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./partials/password */ "./resources/js/partials/password.js");
 // REQUIRES
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // IMPORTS
 
 
 
+
 _partials_selectBox__WEBPACK_IMPORTED_MODULE_0__.default.init();
+_partials_password__WEBPACK_IMPORTED_MODULE_1__.default.init();
 
 if (document.getElementById('cover')) {
   var readSingleFile = function readSingleFile(e) {
@@ -1911,6 +1914,50 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/partials/password.js":
+/*!*******************************************!*\
+  !*** ./resources/js/partials/password.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var password = {
+  spanElt: document.querySelectorAll('.password-action-showHide'),
+  inputPasswordElt: document.querySelectorAll('.password-action input'),
+  init: function init() {
+    this.showPassword();
+    console.log(this.inputPasswordElt);
+  },
+  showPassword: function showPassword() {
+    var _this = this;
+
+    if (this.spanElt) {
+      var _loop = function _loop(i) {
+        _this.spanElt[i].addEventListener('click', function () {
+          _this.spanElt[i].classList.toggle('hide-password');
+
+          if (_this.inputPasswordElt[i].type === "password") {
+            _this.inputPasswordElt[i].attributes["type"].value = "text";
+          } else if (_this.inputPasswordElt[i].type === "text") {
+            _this.inputPasswordElt[i].attributes["type"].value = "password";
+          }
+        });
+      };
+
+      for (var i = 0; i < this.spanElt.length; i++) {
+        _loop(i);
+      }
+    }
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (password);
+
+/***/ }),
+
 /***/ "./resources/js/partials/selectBox.js":
 /*!********************************************!*\
   !*** ./resources/js/partials/selectBox.js ***!
@@ -1931,9 +1978,11 @@ var selectBox = {
   showCheckboxes: function showCheckboxes() {
     var _this = this;
 
-    this.selectboxElt.addEventListener('click', function () {
-      _this.checkboxesElt.classList.toggle('checkboxesEl-on');
-    });
+    if (this.selectboxElt) {
+      this.selectboxElt.addEventListener('click', function () {
+        _this.checkboxesElt.classList.toggle('checkboxesEl-on');
+      });
+    }
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (selectBox);
