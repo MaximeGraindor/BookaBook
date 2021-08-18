@@ -46,7 +46,7 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::get('/orders', [OrderController::class, 'index'])->name('order.index')->middleware('teacher');;
 
     Route::prefix('order')->group(function () {
-        Route::post('/store', [OrderController::class, 'store'])->name('order.store')->middleware('teacher');
+        Route::post('/store', [OrderController::class, 'store'])->name('order.store');
         Route::post('/{order:id}/status', [OrderStatusController::class, 'update'])->name('orderStatus.update')->middleware('teacher');
         Route::post('/{order:id}/status/waiting', [OrderStatusController::class, 'updateDraftOrder'])->name('orderStatus.updateDraftOrder');
         Route::post('/{book:id}/quantity', [BookOrderController::class, 'update'])->name('bookOrder.update');

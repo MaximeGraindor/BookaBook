@@ -15,6 +15,19 @@ class CartController extends Controller
         ->where('user_id', Auth::user()->id)
         ->first();
 
+        $draftOrderBookQuantity = 0;
+
+        if(($draftOrder->books)->count()){
+            foreach ($draftOrder->books as $book) {
+                $draftOrderBookQuantity += $book->pivot->quantity;
+            }
+        }else{
+            $draftOrderBookQuantity = 0;
+        }
+
+
+        $draftOrderBookQuantity;
+
         return view('pages.cart', compact('draftOrder'));
     }
 }
