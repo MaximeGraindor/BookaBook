@@ -14,23 +14,22 @@
 @import 'utils/paginate.scss';
 
 // VIEWS FOLDER
-@import 'views/books.scss';
-@import 'views/book.scss';
 @import 'views/cart.scss';
-@import 'views/profil.scss';
-@import 'views/orders.scss';
 
     // LAYOUTS FOLDER
     @import 'views/layouts/main.scss';
 
     // USER FOLDER
-    @import 'views/user/edit-profil.scss';
+    @import 'views/user/edit-user.scss';
     @import 'views/user/index-user.scss';
+    @import 'views/user/show-user.scss';
 
     // ORDER FOLDER
     @import 'views/order/show-order.scss';
+    @import 'views/order/index-order.scss';
 
     // BOOK FOLDER
-    @import 'views/book/edit-book.scss';
-    @import 'views/book/create-book.scss';
+    @import 'views/book/createOrUpdate-book.scss';
+    @import 'views/book/index-book.scss';
+    @import 'views/book/show-book.scss';
 

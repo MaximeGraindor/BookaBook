@@ -90,12 +90,19 @@
                         </div>
                         <div class="checkboxes">
                             @foreach ($authors as $author)
-                                @foreach ($book->authors as $bookAuthor)
-                                <label for="{{ $author->name }}">
-                                    <input type="checkbox" id="{{ $author->id }}" value="{{ $author->name }}" name="authors[]" {{$bookAuthor->id === $author->id ? 'checked' : ''}}/>
-                                    {{ $author->name }}
-                                </label>
-                                @endforeach
+                                @if(($book->authors)->count())
+                                    @foreach ($book->authors as $bookAuthor)
+                                        <label for="{{ $author->name }}">
+                                            <input type="checkbox" id="{{ $author->id }}" value="{{ $author->name }}" name="authors[]" {{$bookAuthor->id === $author->id ? 'checked' : ''}}/>
+                                            {{ $author->name }}
+                                        </label>
+                                    @endforeach
+                                @else
+                                    <label for="{{ $author->name }}">
+                                        <input type="checkbox" id="{{ $author->id }}" value="{{ $author->name }}" name="authors[]"/>
+                                        {{ $author->name }}
+                                    </label>
+                                @endif
                             @endforeach
                             @error('authors')
                                 <span class="createBook-form-error">{{$message}}</span>

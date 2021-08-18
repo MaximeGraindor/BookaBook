@@ -1,6 +1,13 @@
 @extends('layouts.main')
 @section('title', $book->name)
 @section('content')
+
+    {{-- @if(session('succes'))
+        <div class="alert alert-succes">
+            <p>{{session()->get( 'id' ) }}</p>
+        </div>
+    @endif --}}
+
     <div class="book max-width">
         <div class="book-breadcrumb">
             <a href="/books">Livres</a>
@@ -20,8 +27,8 @@
                 @elsecan('isStudent')
                     <form action="/order/store" method="post">
                         @csrf
-                        <button type="submit">Ajouter</button>
-                        <input type="hidden" name="bookId"  value="{{$book->id}}" class="add-to-cart">
+                        <button type="submit"  class="add-to-cart">Ajouter au panier</button>
+                        <input type="hidden" name="bookId"  value="{{$book->id}}">
                     </form>
                 @endcan
                 <ul>
