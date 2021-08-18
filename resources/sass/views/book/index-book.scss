@@ -54,7 +54,7 @@
     justify-content: center;
     align-items: center;
     img{
-        width: auto;
+        max-width: 160px;
         border: 1px solid black;
         height: 250px;
     }
@@ -98,5 +98,13 @@
             vertical-align: text-top;
             margin-right: 5px;
         }
+    }
+}
+
+@media screen and (max-width: 577px){
+    .books-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        gap: 2rem;
     }
 }

@@ -157,3 +157,11 @@
         margin-bottom: 0.5rem;
     }
 }
+
+
+@media screen and (max-width: 850px){
+    .cart-content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

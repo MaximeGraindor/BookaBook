@@ -3,7 +3,6 @@ const password = {
     inputPasswordElt : document.querySelectorAll('.password-action input'),
     init(){
         this.showPassword()
-        console.log(this.inputPasswordElt);
     },
 
     showPassword(){

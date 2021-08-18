@@ -4,9 +4,11 @@ require('./bootstrap');
 // IMPORTS
 import selectBox from './partials/selectBox'
 import password from './partials/password'
+import responsiveMenu from './partials/responsiveMenu'
 
 selectBox.init()
 password.init()
+responsiveMenu.init()
 
 
 if (document.getElementById('cover')) {

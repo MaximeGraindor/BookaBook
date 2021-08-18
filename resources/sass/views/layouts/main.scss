@@ -91,6 +91,21 @@
     }
 }
 
+.menuResponsive-on{
+    display: block !important;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    background-color: #e1f1ff;
+    padding: 2rem 4rem;
+
+    .header-menu{
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
 // REPONSIVE
 
 @media screen and (max-width: 1000px){
@@ -99,5 +114,13 @@
     }
     .header-nav, .header-right{
         display: none;
+    }
+    .header{
+        .header-title{
+            &::after{
+                height: 62px;
+                top: -19px;
+            }
+        }
     }
 }

@@ -1844,14 +1844,17 @@ module.exports = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_selectBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./partials/selectBox */ "./resources/js/partials/selectBox.js");
 /* harmony import */ var _partials_password__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./partials/password */ "./resources/js/partials/password.js");
+/* harmony import */ var _partials_responsiveMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./partials/responsiveMenu */ "./resources/js/partials/responsiveMenu.js");
 // REQUIRES
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // IMPORTS
 
 
 
 
+
 _partials_selectBox__WEBPACK_IMPORTED_MODULE_0__.default.init();
 _partials_password__WEBPACK_IMPORTED_MODULE_1__.default.init();
+_partials_responsiveMenu__WEBPACK_IMPORTED_MODULE_2__.default.init();
 
 if (document.getElementById('cover')) {
   var readSingleFile = function readSingleFile(e) {
@@ -1930,7 +1933,6 @@ var password = {
   inputPasswordElt: document.querySelectorAll('.password-action input'),
   init: function init() {
     this.showPassword();
-    console.log(this.inputPasswordElt);
   },
   showPassword: function showPassword() {
     var _this = this;
@@ -1955,6 +1957,37 @@ var password = {
   }
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (password);
+
+/***/ }),
+
+/***/ "./resources/js/partials/responsiveMenu.js":
+/*!*************************************************!*\
+  !*** ./resources/js/partials/responsiveMenu.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var responsiveMenu = {
+  menuImgEl: document.querySelector('.header-responsiveMenu'),
+  menuElt: document.querySelector('.header-nav'),
+  init: function init() {
+    this.showResponsiveMenu();
+  },
+  showResponsiveMenu: function showResponsiveMenu() {
+    var _this = this;
+
+    if (this.menuImgEl) {
+      this.menuImgEl.addEventListener('click', function () {
+        _this.menuElt.classList.toggle('menuResponsive-on');
+      });
+    }
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (responsiveMenu);
 
 /***/ }),
 
