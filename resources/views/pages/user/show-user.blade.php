@@ -31,6 +31,13 @@
                 <div class="profil-update">
                     <a href="/profil/{{$user->slug}}/edit">Modifier mon profil</a>
                 </div>
+                <div class="profil-disconnect">
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit">Se déconnecter</button>
+                    </form>
+                </div>
             </div>
 
         </div>

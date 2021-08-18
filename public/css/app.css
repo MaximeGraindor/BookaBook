@@ -826,6 +826,26 @@ border-ra .cart-item-form-delete input:hover {
   color: white;
 }
 
+.profil-disconnect button {
+  padding: 0.8rem 0.9rem;
+  display: block;
+  background-color: #4a5491;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid;
+  border-radius: 5px;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 200px;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+.profil-disconnect button:hover {
+  background-color: #b8d0ff;
+  color: black;
+}
+
 .profil-order-title {
   font-size: 1.5625rem;
   margin-top: 3rem;
