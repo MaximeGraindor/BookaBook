@@ -21,6 +21,9 @@ class OrderController extends Controller
     public function index(Request $request)
     {
         $orders = Order::with('user', 'status')
+        ->whereHas('status', function($query){
+            $query->where('name', '!=', 'Brouillon');
+        })
         ->where("number", "LIKE", '%' . $request->search . '%')
         ->paginate(10);
         $statuses = Status::all();
@@ -65,8 +68,7 @@ class OrderController extends Controller
         }else{
             $order = new Order();
             $LastNumberOfLastOrder = Order::all()->last() ? substr(((Order::all()->last())->number),8) : '' ;
-            //return substr((Order::all()->last())->number, 8);
-            $order->number = $LastNumberOfLastOrder ? Carbon::now()->year . (Carbon::now()->year+1) . ($LastNumberOfLastOrder+1) : Carbon::now()->year . (Carbon::now()->year+1) . 1;
+            $order->number = $LastNumberOfLastOrder ? substr(Carbon::now()->year, -2) . substr((Carbon::now()->year+1), -2) . ($LastNumberOfLastOrder+1) : substr(Carbon::now()->year, -2) . substr((Carbon::now()->year+1), -2) . 1;
             $order->amount = (Book::where('id', $request->bookId)->first())->student_price;
             $order->user_id = Auth::user()->id;
             $order->save();

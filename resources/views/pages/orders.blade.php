@@ -17,15 +17,8 @@
         </div>
 
         <div class="orders-wrapper">
-            <div class="orders-filter">
-
-            </div>
-
-            <form action="#" method="post" id="checkbox_form"></form>
-
             <table>
                 <thead>
-                    <th></th>
                     <th>Numéro</th>
                     <th>Étudiant</th>
                     <th>Groupe</th>
@@ -36,9 +29,6 @@
                 <tbody>
                     @foreach ($orders as $order)
                         <tr>
-                            <td class="table-orders-checkbox">
-                                <input type="checkbox" name="orders" id="" form="checkbox_form">
-                            </td>
                             <td>
                                 <a href="profil/{{$order->user->slug}}/order/{{$order->number}}">{{$order->number}}</a>
                             </td>

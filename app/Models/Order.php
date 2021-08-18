@@ -38,4 +38,53 @@ class Order extends Model
     {
         return $this->status()->orderBy('order_statuses.created_at', 'desc')->first()->name;
     }
+
+    /**
+     * check if status order is paid
+     *
+     * @return string
+     */
+    public function getisOrderedAttribute()
+    {
+        return array_values(($this->status->filter(function($q){
+            return $q->name === 'Commandé';
+        }))->toArray());
+    }
+
+    /**
+     * check if status order is paid
+     *
+     * @return string
+     */
+    public function getisPaidAttribute()
+    {
+        return array_values(($this->status->filter(function($q){
+            return $q->name === 'Payé';
+        }))->toArray());
+    }
+
+    /**
+     * check if status order is available
+     *
+     * @return string
+     */
+    public function getisAvailableAttribute()
+    {
+        return array_values(($this->status->filter(function($q){
+            return $q->name === 'Disponible';
+        }))->toArray());
+    }
+
+
+    /**
+     * check if status order is delivered
+     *
+     * @return string
+     */
+    public function getisDeliveredAttribute()
+    {
+        return array_values(($this->status->filter(function($q){
+            return $q->name === 'Livré';
+        }))->toArray());
+    }
 }

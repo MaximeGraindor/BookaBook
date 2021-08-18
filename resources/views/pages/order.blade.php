@@ -10,6 +10,24 @@
             <h3 class="order-status-title">
                 Status de la commande
             </h3>
+            <div class="order-status-wrapper">
+                <div class="order-tracking completed">
+                    <span class="is-complete"></span>
+                    <p>Commandé<br><span>{{($order->is_ordered) ? date('d-m-Y', strtotime($order->is_ordered[0]['pivot']['created_at'])) : ''}}</span></p>
+                </div>
+                <div class="order-tracking {{($order->is_paid) ? 'completed' : 'false'}}">
+                    <span class="is-complete"></span>
+                    <p>Payé<br><span>{{($order->is_paid) ? date('d-m-Y', strtotime($order->is_paid[0]['pivot']['created_at'])) : ''}}</span></p>
+                </div>
+                <div class="order-tracking {{($order->is_available) ? 'completed' : 'false'}}">
+                    <span class="is-complete"></span>
+                    <p>Disponible<br><span>{{($order->is_available) ? date('d-m-Y', strtotime($order->is_available[0]['pivot']['created_at'])) : ''}}</span></p>
+                </div>
+                <div class="order-tracking {{($order->is_delivered) ? 'completed' : 'false'}}">
+                    <span class="is-complete"></span>
+                    <p>Livré<br><span>{{($order->is_delivered) ? date('d-m-Y', strtotime($order->is_delivered[0]['pivot']['created_at'])) : ''}}</span></p>
+                </div>
+            </div>
         </article>
         <article class="order-recap">
             <h3 class="order-recap-title">

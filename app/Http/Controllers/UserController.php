@@ -18,8 +18,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all()->except(Auth::id());
-        return view('pages.user.index-user', compact('users'));
+        $users = User::all()
+        ->except(Auth::id());
+        $usersGroup = User::groupBy('group')->pluck('group');
+        return view('pages.user.index-user', compact('users', 'usersGroup'));
     }
 
     /**

@@ -70,6 +70,16 @@
     a{
         text-decoration: none;
         color: black;
+        &:before{
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url('./../img/edit.svg');
+            background-size: 100%;
+            vertical-align: text-top;
+            margin-right: 5px;
+        }
     }
     button{
         background-color: transparent;

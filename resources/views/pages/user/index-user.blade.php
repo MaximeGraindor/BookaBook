@@ -2,15 +2,27 @@
 @section('title', 'Étudiants')
 
 @section('content')
-    <div class="orders max-width">
-        <div class="orders-top">
-            <h2 class="orders-title">
+    <div class="students max-width">
+        <div class="students-top">
+            <h2 class="students-title">
                 Liste des étudiants
             </h2>
+            <form action="#" method="get" class="students-form-filter">
+                <div class="students-filter-search">
+                    <label for="group" class="hidden">Groupe</label>
+                    <select name="group" id="group">
+                        @foreach ($usersGroup as $group)
+                            <option value="{{$group}}">{{$group}}</option>
+                        @endforeach
+                        <option value=""></option>
+                    </select>
+                    <input type="submit" value="Filtrer">
+                </div>
+            </form>
         </div>
 
-        <div class="orders-wrapper">
-            <div class="orders-filter">
+        <div class="students-wrapper">
+            <div class="students-filter">
 
             </div>
 
@@ -29,7 +41,7 @@
                     @foreach ($users as $user)
                         <tr>
                             <td>
-                                <input type="checkbox" name="orders" id="" form="checkbox_form">
+                                <input type="checkbox" name="students" id="" form="checkbox_form">
                             </td>
                             <td>
                                 <a href="profil/{{$user->slug}}">{{$user->name}} {{$user->firstname}}</a>

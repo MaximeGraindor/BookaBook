@@ -11,7 +11,7 @@
     <header class="max-width header">
         <div class="header-left">
             <h1 class="header-title">
-                Book a book <span class="hidden">- @yield('title')</span>
+                <a href="/books">Book a book <span class="hidden">- @yield('title')</span></a>
             </h1>
             <nav class="header-nav">
                 <h2 class="hidden">
@@ -43,6 +43,9 @@
                     <img src="{{ asset('/storage/users/' . Auth::user()->picture) }}" alt="Photo de profil">
                 </div>
             </a>
+        </div>
+        <div class="header-responsiveMenu">
+            <img src="/img/menu.svg" alt="Photo de profil">
         </div>
     </header>
 

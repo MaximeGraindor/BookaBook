@@ -15,11 +15,15 @@
                 <h2 class="book-title">
                     {{ $book->name }}
                 </h2>
-                <form action="/order/store" method="post">
-                    @csrf
-                    <input type="submit" value="Ajouter au panier" class="add-to-cart">
-                    <input type="hidden" name="bookId"  value="{{$book->id}}">
-                </form>
+                @can('isTeacher')
+                    <a href="/books/{{$book->slug}}/edit" class="add-to-cart">Modifier le livre</a>
+                @elsecan('isStudent')
+                    <form action="/order/store" method="post">
+                        @csrf
+                        <button type="submit">Ajouter</button>
+                        <input type="hidden" name="bookId"  value="{{$book->id}}" class="add-to-cart">
+                    </form>
+                @endcan
                 <ul>
                     <li>
                         <span class="book-content-infos-title">ISBN&nbsp;: </span>{{$book->ISBN}}

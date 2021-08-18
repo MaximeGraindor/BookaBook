@@ -23,6 +23,7 @@
     font-family: $font;
     font-size: pxToRem(18);
     margin-bottom: 2rem;
+    display: inline-block;
     &:hover{
         background-color: $color-blue-dark;
         color: white !important;
