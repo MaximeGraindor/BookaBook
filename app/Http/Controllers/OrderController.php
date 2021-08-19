@@ -67,7 +67,7 @@ class OrderController extends Controller
             }
         }else{
             $order = new Order();
-            $LastNumberOfLastOrder = Order::all()->last() ? substr(((Order::all()->last())->number),8) : '' ;
+            $LastNumberOfLastOrder = Order::all()->last() ? substr(((Order::all()->last())->number),4) : '' ;
             $order->number = $LastNumberOfLastOrder ? substr(Carbon::now()->year, -2) . substr((Carbon::now()->year+1), -2) . ($LastNumberOfLastOrder+1) : substr(Carbon::now()->year, -2) . substr((Carbon::now()->year+1), -2) . 1;
             $order->amount = (Book::where('id', $request->bookId)->first())->student_price;
             $order->user_id = Auth::user()->id;

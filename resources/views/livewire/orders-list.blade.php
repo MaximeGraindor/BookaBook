@@ -44,15 +44,16 @@
                             <a href="profil/{{$order->user->slug}}/order/{{$order->number}}">{{$order->amount}}€</a>
                         </td>
                         <td>
-                            <form action="/order/{{$order->id}}/status" method="post">
+                            <form action="/order/{{$order->id}}/status" method="post" >
                                 @csrf
                                 <label for="status" class="hidden">Changement de statut</label>
-                                <select name="status" id="status">
+                                <select name="status" id="status" {{-- wire:change="updateOrder({{$order->id}})" --}}>
                                     @foreach ($statuses as $status)
                                         <option value="{{$status->id}}" {{$status->name === $order->last_status ? 'selected' : ''}}>{{$status->name}}</option>
                                     @endforeach
                                 </select>
                                 <input type="submit" value="Modifier">
+                                {{$selectedStatus}}
                             </form>
                         </td>
                         <td>

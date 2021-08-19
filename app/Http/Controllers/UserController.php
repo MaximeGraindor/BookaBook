@@ -80,10 +80,10 @@ class UserController extends Controller
         $user = User::where('id', Auth::user()->id)->first();
 
         $request->validate([
-            'firstname' => 'string',
-            'name' => 'string',
-            'email' => 'unique:users|max:15',
-            'group' => 'string',
+            'firstname' => 'nullable|string',
+            'name' => 'nullable|string',
+            'email' => 'nullable|unique:users|max:15',
+            'group' => 'nullable|string',
             'picture' => 'mimes:jpg,png,jpeg,gif'
         ]);
 

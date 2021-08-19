@@ -5,9 +5,15 @@
     font-weight: 600;
 }
 
+.profilUpdate-wrapper{
+    display: flex;
+    gap: 3rem;
+}
 
 .profilUpdate-form{
     display: flex;
+    flex-direction: column;
+    gap: 1rem;
     label, input{
         display: block;
     }

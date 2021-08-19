@@ -12,6 +12,7 @@ class OrdersList extends Component
 
     use WithPagination;
 
+    public $selectedStatus = null;
     public $command;
     public $student;
 
@@ -19,6 +20,12 @@ class OrdersList extends Component
         'command',
         'student',
     ];
+
+    /* public function updateOrder($order){
+        $order = Order::with('status')->where('id', $order)->first();
+        $order->status()->attach($this->selectedStatus);
+        dd($order);
+    } */
 
     public function render()
     {

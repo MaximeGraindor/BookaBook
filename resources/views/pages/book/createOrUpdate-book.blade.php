@@ -25,7 +25,7 @@
                 </div>
                 <div class="createBook-form-title">
                     <label for="title">Titre du livre</label>
-                    <input type="text" id="title" name="title" value="{{old('name')}}" placeholder="{{$book->name}}">
+                    <input type="text" id="title" name="title" value="{{old('title')}}" placeholder="{{$book->name}}">
                     @error('title')
                         <span class="createBook-form-error">{{$message}}</span>
                     @enderror

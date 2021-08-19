@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Image;
 use App\Models\Book;
 use App\Models\Author;
 use App\Models\Publisher;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 
-use Image;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class BookController extends Controller
 {
@@ -52,9 +53,7 @@ class BookController extends Controller
             'publicPrice' => ['required','regex:/^(?:[1-9]\d+|\d)(?:\.\d\d)?$/'],
             'studentPrice' => ['required', 'regex:/^(?:[1-9]\d+|\d)(?:\.\d\d)?$/'],
             'publisher' => 'required',
-            'authors' => 'required|array|min:1',
-            'authors.*' => 'numeric',
-            'publishingDetails' => ''
+            'publishingDetails' => 'nullable'
         ]);
 
         $img = $request->file('cover');
@@ -121,7 +120,19 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        //return $request;
+
+        if($request->hasFile('cover')){
+            $img = $request->file('cover');
+            $nameImg = $img->hashName();
+
+            $img = Image::make($img)->resize(300, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $img->save('storage/books'. '\\' . $nameImg);
+            $book->update([
+                'cover_path' => $nameImg,
+            ]);
+        }
 
         if($request->title){
             $book->update([
@@ -167,7 +178,7 @@ class BookController extends Controller
             ]);
         }
 
-        return redirect()->back();
+        return Redirect::route('book.edit', $book->slug);
 
     }
 

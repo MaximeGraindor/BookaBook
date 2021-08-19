@@ -85,3 +85,16 @@
         }
     }
 }
+
+.student-actif{
+    border-radius: 5px;
+    padding: 0.2rem 1rem;
+    background-color: lightgreen;
+    box-sizing: border-box;
+}
+.student-inactif{
+    border-radius: 5px;
+    padding: 0.2rem 1rem;
+    background-color: lightcoral;
+    box-sizing: border-box;
+}
