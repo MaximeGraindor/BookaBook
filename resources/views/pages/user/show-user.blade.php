@@ -28,6 +28,7 @@
                         <span class="profil-infos-title">Groupe&nbsp;: </span>{{$user->group}}
                     </li>
                 </ul>
+                @if($user->id === Auth::user()->id)
                 <div class="profil-update">
                     <a href="/profil/{{$user->slug}}/edit">Modifier mon profil</a>
                 </div>
@@ -38,6 +39,7 @@
                         <button type="submit">Se déconnecter</button>
                     </form>
                 </div>
+                @endif
             </div>
 
         </div>

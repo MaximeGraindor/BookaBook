@@ -77,7 +77,8 @@ class OrderStatusController extends Controller
     {
         $order->load('user', 'status', 'books');
         $order->status()->attach((Status::where('id', $request->status)->first())->id);
-        Mail::to($order->user->email)->send(new OrderStatusChanged($order));
+        $status = Status::where('id', $request->status)->first();
+        Mail::to($order->user->email)->send(new OrderStatusChanged($order, $status));
         return redirect('orders');
     }
 

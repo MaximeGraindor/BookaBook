@@ -12,7 +12,7 @@ class OrdersList extends Component
 
     use WithPagination;
 
-    public $selectedStatus = null;
+    //public $selectedStatus = null;
     public $command;
     public $student;
 

@@ -53,7 +53,6 @@
                                     @endforeach
                                 </select>
                                 <input type="submit" value="Modifier">
-                                {{$selectedStatus}}
                             </form>
                         </td>
                         <td>

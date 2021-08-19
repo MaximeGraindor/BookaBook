@@ -7,6 +7,9 @@
 }
 
 .students-form-filter{
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
     label{
         display: block;
     }

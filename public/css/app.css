@@ -703,6 +703,11 @@ border-ra .cart-item-form-delete input:hover {
   margin-bottom: 2rem;
 }
 
+.students-form-filter {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
 .students-form-filter label {
   display: block;
 }

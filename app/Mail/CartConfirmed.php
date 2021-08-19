@@ -31,6 +31,7 @@ class CartConfirmed extends Mailable
      */
     public function build()
     {
-        return $this->from('bookabook@gmail.com')->view('emails.cartConfirmed');
+        return $this->from('bookabook@gmail.com')
+        ->markdown('emails.cartConfirmed');
     }
 }

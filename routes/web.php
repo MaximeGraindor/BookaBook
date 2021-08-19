@@ -24,25 +24,23 @@ use App\Http\Controllers\OrderStatusController;
 Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::get('/', [HomeController::class, 'show'])->name('home');
 
-    Route::get('/profil/{user:slug}', [UserController::class, 'show'])->name('user.show');
-    Route::get('/profil/{user:slug}/edit', [UserController::class, 'edit'])->name('user.edit');
-    Route::put('/profil/{user:slug}/update', [UserController::class, 'update'])->name('user.update');
-    Route::get('/profil/{user:slug}/order/{order:number}', [OrderController::class, 'show'])->name('order.show');
-
-    Route::get('/students', [UserController::class, 'index'])->name('user.index')->middleware('teacher');
+    Route::prefix('profil')->group(function () {
+        Route::get('/{user:slug}', [UserController::class, 'show'])->name('user.show');
+        Route::get('/{user:slug}/edit', [UserController::class, 'edit'])->name('user.edit');
+        Route::put('/{user:slug}/update', [UserController::class, 'update'])->name('user.update');
+        Route::get('/{user:slug}/order/{order:number}', [OrderController::class, 'show'])->name('order.show');
+    });
 
     Route::prefix('books')->group(function () {
-
+        Route::group(['middleware' => ['teacher']], function() {
             Route::get('/create', [BookController::class, 'create'])->name('book.create');
             Route::post('/store', [BookController::class, 'store'])->name('book.store');
             Route::get('/{book:slug}/edit', [BookController::class, 'edit'])->name('book.edit');
             Route::put('/{book:slug}/update', [BookController::class, 'update'])->name('book.update');
-
+        });
         Route::get('/', [BookController::class, 'index'])->name('book.index');
         Route::get('/{book:slug}', [BookController::class, 'show'])->name('book.show');
     });
-
-    Route::get('/orders', [OrderController::class, 'index'])->name('order.index')->middleware('teacher');;
 
     Route::prefix('order')->group(function () {
         Route::post('/store', [OrderController::class, 'store'])->name('order.store');
@@ -52,6 +50,8 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
         Route::post('/{book:id}/delete', [BookOrderController::class, 'destroy'])->name('bookOrder.destroy')->middleware('teacher');
     });
 
+    Route::get('/orders', [OrderController::class, 'index'])->name('order.index')->middleware('teacher');
+    Route::get('/students', [UserController::class, 'index'])->name('user.index')->middleware('teacher');
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 });
 

@@ -69,4 +69,9 @@ class User extends Authenticatable
             return $role->name === 'Étudiant';
         })->count();
     }
+
+    public function getIsEnabledAttribute()
+    {
+        return (bool)$this->enabled === 1;
+    }
 }

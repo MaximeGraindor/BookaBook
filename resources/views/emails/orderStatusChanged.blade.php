@@ -1,7 +1,7 @@
 <section class="orderConfirmed">
     <h1> Book a Book</h1>
     <p>
-        Le statut de votre commande est passé à
+        Le statut de votre commande est passé à{{ $status->name}}
     </p>
     <article>
         <h2>

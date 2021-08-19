@@ -14,15 +14,17 @@ class OrderStatusChanged extends Mailable
     use Queueable, SerializesModels;
 
     public $order;
+    public $status;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Order $order)
+    public function __construct(Order $order, Status $status)
     {
         $this->order = $order;
+        $this->status = $status;
     }
 
     /**

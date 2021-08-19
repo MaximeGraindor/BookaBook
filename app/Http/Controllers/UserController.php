@@ -82,8 +82,8 @@ class UserController extends Controller
         $request->validate([
             'firstname' => 'nullable|string',
             'name' => 'nullable|string',
-            'email' => 'nullable|unique:users|max:15',
-            'group' => 'nullable|string',
+            'email' => 'nullable|unique:users|max:255',
+            'group' => 'nullable|integer',
             'picture' => 'mimes:jpg,png,jpeg,gif'
         ]);
 

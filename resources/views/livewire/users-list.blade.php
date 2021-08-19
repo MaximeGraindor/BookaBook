@@ -4,6 +4,10 @@
             Liste des étudiants
         </h2>
         <form action="#" method="get" class="students-form-filter">
+            <div class="orders-filter-student">
+                <label for="search">Étudiant</label>
+                <input type="search" id="search" name="student" placeholder="ex: Graindor" wire:model="student">
+            </div>
             <div class="students-filter-search">
                 <label for="search">Groupe</label>
                 <select name="group" id="group" wire:model="group">
@@ -14,10 +18,10 @@
                         @endif
                     @endforeach
                 </select>
-                <noscript>
-                    <button type="submit">Filtrer</button>
-                </noscript>
             </div>
+            <noscript>
+                <button type="submit">Filtrer</button>
+            </noscript>
         </form>
     </div>
 

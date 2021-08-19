@@ -12,14 +12,17 @@ class UsersList extends Component
     use WithPagination;
 
     public $group;
+    public $student;
 
     protected $queryString = [
         'group',
+        'student',
     ];
 
     public function render()
     {
         $users = User::where('id', '!=', Auth::user()->id)
+        ->where("name", "LIKE", '%' . $this->student . '%')
         ->where("group", "LIKE", '%' . $this->group . '%')
         ->paginate(10);
 
