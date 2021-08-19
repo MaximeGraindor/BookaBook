@@ -993,13 +993,32 @@ border-ra .cart-item-form-delete input:hover {
   margin-bottom: 2rem;
 }
 
+.orders-form-filter {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
 .orders-form-filter label {
   display: block;
+  font-size: 0.9375rem;
+  margin-bottom: 0.125rem;
 }
 .orders-form-filter input {
-  padding: 0.5rem 0.6rem;
+  padding: 0.3rem 0.6rem;
   font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
   font-size: 0.875rem;
+}
+.orders-form-filter button {
+  padding: 0.3rem 1.6rem;
+  font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 0.875rem;
+  background-color: #b8d0ff;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.orders-form-filter button:hover {
+  background-color: #5d7ebe;
+  color: white;
 }
 
 .orders-title {

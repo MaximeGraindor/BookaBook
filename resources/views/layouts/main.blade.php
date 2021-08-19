@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Book a Book - @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+    @livewireStyles
 </head>
 <body class="main-content">
     <header class="max-width header">
@@ -52,6 +53,7 @@
     @yield('content')
 
     <script src="{{ asset('/js/app.js') }}"></script>
+    @livewireScripts
 
 </body>
 </html>

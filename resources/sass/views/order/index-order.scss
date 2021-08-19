@@ -7,13 +7,30 @@
 }
 
 .orders-form-filter{
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
     label{
         display: block;
+        font-size: pxToRem(15);
+        margin-bottom: pxToRem(2);
     }
     input{
-        padding: 0.5rem 0.6rem;
+        padding: 0.3rem 0.6rem;
         font-family: $font;
         font-size: pxToRem(14);
+    }
+    button{
+        padding: 0.3rem 1.6rem;
+        font-family: $font;
+        font-size: pxToRem(14);
+        background-color: #b8d0ff;
+        border: 1px solid black;
+        cursor: pointer;
+        &:hover{
+            background-color: $color-blue-dark;
+            color: white;
+        }
     }
 }
 
