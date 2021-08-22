@@ -74,6 +74,9 @@
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: pxToRem(20);
+    span{
+        display: block;
+    }
 }
 
 .login-form{
@@ -113,6 +116,7 @@
     font-weight: 600;
     display: block;
     margin-top: 0.2rem;
+    max-width: 375px;
 }
 
 .login-input-error{
@@ -129,4 +133,25 @@
     display: flex;
     justify-content: space-between;
     margin-top: 0.5rem;
+}
+
+//RESPONSIVE
+@media screen and (max-width:1000px){
+    .login-wrapper {
+        flex-direction: column;
+    }
+    .login-left {
+        padding: 2rem;
+    }
+    .login-right {
+        padding: 3rem;
+    }
+}
+@media screen and (max-width:750px){
+    .login-right .login-intro span + span {
+        font-size: 4.25rem;
+    }
+    .login-right .login-logo-HEPL {
+        width: 200px;
+    }
 }

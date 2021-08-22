@@ -1974,8 +1974,10 @@ __webpack_require__.r(__webpack_exports__);
 var responsiveMenu = {
   menuImgEl: document.querySelector('.header-responsiveMenu'),
   menuElt: document.querySelector('.header-nav'),
+  closeMenu: document.querySelector('.responsiveMenu-close'),
   init: function init() {
     this.showResponsiveMenu();
+    this.closeResponsiveMenu();
   },
   showResponsiveMenu: function showResponsiveMenu() {
     var _this = this;
@@ -1983,6 +1985,15 @@ var responsiveMenu = {
     if (this.menuImgEl) {
       this.menuImgEl.addEventListener('click', function () {
         _this.menuElt.classList.toggle('menuResponsive-on');
+      });
+    }
+  },
+  closeResponsiveMenu: function closeResponsiveMenu() {
+    var _this2 = this;
+
+    if (this.closeMenu) {
+      this.closeMenu.addEventListener('click', function () {
+        _this2.menuElt.classList.remove('menuResponsive-on');
       });
     }
   }

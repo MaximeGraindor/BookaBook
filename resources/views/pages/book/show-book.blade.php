@@ -1,13 +1,6 @@
 @extends('layouts.main')
 @section('title', $book->name)
 @section('content')
-
-    {{-- @if(session('succes'))
-        <div class="alert alert-succes">
-            <p>{{session()->get( 'id' ) }}</p>
-        </div>
-    @endif --}}
-
     <div class="book max-width">
         <div class="book-breadcrumb">
             <a href="/books">Livres</a>
@@ -23,12 +16,19 @@
                     {{ $book->name }}
                 </h2>
                 @can('isTeacher')
-                    <a href="/books/{{$book->slug}}/edit" class="add-to-cart">Modifier le livre</a>
+                    <div class="book-actions">
+                        <a href="/books/{{$book->slug}}/edit" class="add-to-cart">Modifier le livre</a>
+                        <form action="/books/{{$book->slug}}/destroy" method="post">
+                            @csrf
+                            <button type="submit"  class="add-to-cart">Supprimer</button>
+                            <input type="hidden" name="bookId" value="{{$book->id}}">
+                        </form>
+                    </div>
                 @elsecan('isStudent')
                     <form action="/order/store" method="post">
                         @csrf
                         <button type="submit"  class="add-to-cart">Ajouter au panier</button>
-                        <input type="hidden" name="bookId"  value="{{$book->id}}">
+                        <input type="hidden" name="bookId" value="{{$book->id}}">
                     </form>
                 @endcan
                 <ul>

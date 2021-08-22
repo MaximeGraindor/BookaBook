@@ -113,3 +113,26 @@
 .register-input-error{
     border: 2px solid #ac0000 !important;
 }
+
+//RESPONSIVE
+@media screen and (max-width:1000px){
+    .register-wrapper {
+        flex-direction: column-reverse;
+        height: initial;
+    }
+    .register-left {
+        padding: 2rem;
+    }
+    .register-right {
+        padding: 3rem;
+    }
+}
+@media screen and (max-width:750px){
+    .register-right .register-intro span + span {
+        font-size: 4.25rem;
+    }
+    .register-right .register-logo-HEPL {
+        width: 200px;
+
+    }
+}

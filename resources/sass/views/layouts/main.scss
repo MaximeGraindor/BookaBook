@@ -44,6 +44,16 @@
 .header-menu{
     display: flex;
     gap: 0.2rem;
+    .responsiveMenu-close{
+        display: none;
+        background-image: url('./../img/close.svg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
     .header-menu-item{
         .header-menu-link{
             text-decoration: none;
@@ -98,11 +108,15 @@
     top: 0;
     height: 100vh;
     background-color: #e1f1ff;
-    padding: 2rem 4rem;
-
+    padding: 4rem 4rem 2rem;
+    border-left: 2px solid black;
+    z-index: 2;
     .header-menu{
         flex-direction: column;
         gap: 2rem;
+        .responsiveMenu-close{
+            display: block;
+        }
     }
 }
 

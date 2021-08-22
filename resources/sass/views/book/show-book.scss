@@ -10,24 +10,37 @@
     }
 }
 
-.add-to-cart{
-    padding: 0.5rem 1rem;
-    background-color: #b8d0ff;
-    color: black;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-    box-sizing: border-box;
-    font-family: $font;
-    font-size: pxToRem(18);
+.book-actions{
+    display: flex;
+    gap: 2rem;
     margin-bottom: 2rem;
-    display: inline-block;
-    &:hover{
-        background-color: $color-blue-dark;
-        color: white !important;
+    a, button{
+        padding: 0.5rem 1rem;
+        background-color: #b8d0ff;
+        color: black;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+        box-sizing: border-box;
+        font-family: $font;
+        font-size: pxToRem(18);
+        display: inline-block;
+        &:hover{
+            background-color: $color-blue-dark;
+            color: white !important;
+        }
     }
+    button{
+        background-color: #ff7c7c7a;
+        &:hover{
+            background-color: #b011117a;
+            color: white !important;
+        }
+
+    }
+
 }
 
 .book-content{

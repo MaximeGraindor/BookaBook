@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
         Route::group(['middleware' => ['teacher']], function() {
             Route::get('/create', [BookController::class, 'create'])->name('book.create');
             Route::post('/store', [BookController::class, 'store'])->name('book.store');
+            Route::post('/{book:slug}/destroy', [BookController::class, 'destroy'])->name('book.destroy');
             Route::get('/{book:slug}/edit', [BookController::class, 'edit'])->name('book.edit');
             Route::put('/{book:slug}/update', [BookController::class, 'update'])->name('book.update');
         });

@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap);
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -221,6 +222,29 @@ body {
   border: 2px solid #ac0000 !important;
 }
 
+@media screen and (max-width: 1000px) {
+  .register-wrapper {
+    flex-direction: column-reverse;
+    height: initial;
+  }
+
+  .register-left {
+    padding: 2rem;
+  }
+
+  .register-right {
+    padding: 3rem;
+  }
+}
+@media screen and (max-width: 750px) {
+  .register-right .register-intro span + span {
+    font-size: 4.25rem;
+  }
+
+  .register-right .register-logo-HEPL {
+    width: 200px;
+  }
+}
 .login-wrapper {
   display: flex;
   height: 100vh;
@@ -299,6 +323,9 @@ body {
   font-weight: bold;
   margin-bottom: 1.25rem;
 }
+.login-title span {
+  display: block;
+}
 
 .login-form div:not(:last-child) {
   margin-bottom: 1.25rem;
@@ -335,6 +362,7 @@ body {
   font-weight: 600;
   display: block;
   margin-top: 0.2rem;
+  max-width: 375px;
 }
 
 .login-input-error {
@@ -354,6 +382,346 @@ body {
   margin-top: 0.5rem;
 }
 
+@media screen and (max-width: 1000px) {
+  .login-wrapper {
+    flex-direction: column;
+  }
+
+  .login-left {
+    padding: 2rem;
+  }
+
+  .login-right {
+    padding: 3rem;
+  }
+}
+@media screen and (max-width: 750px) {
+  .login-right .login-intro span + span {
+    font-size: 4.25rem;
+  }
+
+  .login-right .login-logo-HEPL {
+    width: 200px;
+  }
+}
+.forgotPassword-wrapper {
+  display: flex;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.forgotPassword-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 0 0 50%;
+}
+
+.forgotPassword-toRegister {
+  margin-bottom: 2.5rem;
+  font-size: 1.125rem;
+}
+.forgotPassword-toRegister a {
+  font-weight: bold;
+  color: #4d6492;
+}
+
+.forgotPassword-right {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), url("./../img/register-background.jpg");
+  /* W3C */
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex: 0 0 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5rem;
+  box-sizing: border-box;
+}
+.forgotPassword-right .forgotPassword-intro {
+  font-size: 1.625rem;
+  margin-bottom: 1.25rem;
+  color: white;
+}
+.forgotPassword-right .forgotPassword-intro span:first-child {
+  display: block;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3125rem;
+  font-weight: 200;
+  margin-bottom: 0.625rem;
+}
+.forgotPassword-right .forgotPassword-intro span + span {
+  font-size: 6.25rem;
+  font-weight: bold;
+}
+.forgotPassword-right .forgotPassword-intro:after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 5px;
+  background-color: white;
+  margin-top: 1.25rem;
+}
+.forgotPassword-right .forgotPassword-info {
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: 1.375rem;
+  line-height: 1.75rem;
+}
+.forgotPassword-right .forgotPassword-logo-HEPL {
+  width: 300px;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.forgotPassword-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1.25rem;
+}
+.forgotPassword-title span {
+  display: block;
+}
+
+.forgotPassword-form div:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+.forgotPassword-form input[type=email], .forgotPassword-form input[type=password], .forgotPassword-form input[type=text] {
+  padding: 0.5625rem 0.625rem;
+  width: 450px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 0.1875rem;
+  display: block;
+  margin-top: 0.1875rem;
+  font-size: 1.25rem;
+}
+.forgotPassword-form label[for=email], .forgotPassword-form label[for=password] {
+  font-size: 1.25rem;
+}
+.forgotPassword-form input[type=submit] {
+  padding: 0.5625rem 0.625rem;
+  width: 450px;
+  box-sizing: border-box;
+  background-color: #536b99;
+  color: white;
+  cursor: pointer;
+  margin-top: 2.1875rem;
+  border: none;
+  display: block;
+  font-size: 1.25rem;
+}
+
+.forgotPassword-error {
+  color: #ac0000;
+  font-weight: 600;
+  display: block;
+  margin-top: 0.2rem;
+  max-width: 375px;
+}
+
+.forgotPassword-input-error {
+  border: 2px solid #ac0000 !important;
+}
+
+.forgotPassword-forgotPassword {
+  color: black;
+  text-align: right;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.forgotPassword-others {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .forgotPassword-wrapper {
+    flex-direction: column;
+  }
+
+  .forgotPassword-left {
+    padding: 2rem;
+  }
+
+  .forgotPassword-right {
+    padding: 3rem;
+  }
+}
+@media screen and (max-width: 750px) {
+  .forgotPassword-right .forgotPassword-intro span + span {
+    font-size: 4.25rem;
+  }
+
+  .forgotPassword-right .forgotPassword-logo-HEPL {
+    width: 200px;
+  }
+}
+.resetPassword-wrapper {
+  display: flex;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.resetPassword-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 0 0 50%;
+}
+
+.resetPassword-toRegister {
+  margin-bottom: 2.5rem;
+  font-size: 1.125rem;
+}
+.resetPassword-toRegister a {
+  font-weight: bold;
+  color: #4d6492;
+}
+
+.resetPassword-right {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), url("./../img/register-background.jpg");
+  /* W3C */
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex: 0 0 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5rem;
+  box-sizing: border-box;
+}
+.resetPassword-right .resetPassword-intro {
+  font-size: 1.625rem;
+  margin-bottom: 1.25rem;
+  color: white;
+}
+.resetPassword-right .resetPassword-intro span:first-child {
+  display: block;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3125rem;
+  font-weight: 200;
+  margin-bottom: 0.625rem;
+}
+.resetPassword-right .resetPassword-intro span + span {
+  font-size: 6.25rem;
+  font-weight: bold;
+}
+.resetPassword-right .resetPassword-intro:after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 5px;
+  background-color: white;
+  margin-top: 1.25rem;
+}
+.resetPassword-right .resetPassword-info {
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: 1.375rem;
+  line-height: 1.75rem;
+}
+.resetPassword-right .resetPassword-logo-HEPL {
+  width: 300px;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.resetPassword-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1.25rem;
+}
+.resetPassword-title span {
+  display: block;
+}
+
+.resetPassword-form div:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+.resetPassword-form input[type=email], .resetPassword-form input[type=password], .resetPassword-form input[type=text] {
+  padding: 0.5625rem 0.625rem;
+  width: 450px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 0.1875rem;
+  display: block;
+  margin-top: 0.1875rem;
+  font-size: 1.25rem;
+}
+.resetPassword-form label[for=email], .resetPassword-form label[for=password], .resetPassword-form label[for=password_confirmation] {
+  font-size: 1.25rem;
+}
+.resetPassword-form input[type=submit] {
+  padding: 0.5625rem 0.625rem;
+  width: 450px;
+  box-sizing: border-box;
+  background-color: #536b99;
+  color: white;
+  cursor: pointer;
+  margin-top: 2.1875rem;
+  border: none;
+  display: block;
+  font-size: 1.25rem;
+}
+
+.resetPassword-error {
+  color: #ac0000;
+  font-weight: 600;
+  display: block;
+  margin-top: 0.2rem;
+  max-width: 375px;
+}
+
+.resetPassword-input-error {
+  border: 2px solid #ac0000 !important;
+}
+
+.resetPassword-resetPassword {
+  color: black;
+  text-align: right;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.resetPassword-others {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .resetPassword-wrapper {
+    flex-direction: column;
+  }
+
+  .resetPassword-left {
+    padding: 2rem;
+  }
+
+  .resetPassword-right {
+    padding: 3rem;
+  }
+}
+@media screen and (max-width: 750px) {
+  .resetPassword-right .resetPassword-intro span + span {
+    font-size: 4.25rem;
+  }
+
+  .resetPassword-right .resetPassword-logo-HEPL {
+    width: 200px;
+  }
+}
 .bab-pagination {
   display: flex;
   justify-content: center;
@@ -588,6 +956,16 @@ border-ra .cart-item-form-delete input:hover {
   display: flex;
   gap: 0.2rem;
 }
+.header-menu .responsiveMenu-close {
+  display: none;
+  background-image: url("./../img/close.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
 .header-menu .header-menu-item .header-menu-link {
   text-decoration: none;
   color: black;
@@ -639,11 +1017,16 @@ border-ra .cart-item-form-delete input:hover {
   top: 0;
   height: 100vh;
   background-color: #e1f1ff;
-  padding: 2rem 4rem;
+  padding: 4rem 4rem 2rem;
+  border-left: 2px solid black;
+  z-index: 2;
 }
 .menuResponsive-on .header-menu {
   flex-direction: column;
   gap: 2rem;
+}
+.menuResponsive-on .header-menu .responsiveMenu-close {
+  display: block;
 }
 
 @media screen and (max-width: 1000px) {
@@ -1109,6 +1492,69 @@ border-ra .cart-item-form-delete input:hover {
   color: white !important;
 }
 
+@media only screen and (max-width: 760px) {
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    border: 1px solid #ccc;
+  }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  /*
+  Label the data
+  */
+  td:nth-of-type(1):before {
+    content: "Commande";
+  }
+
+  td:nth-of-type(2):before {
+    content: "Nom Prénom";
+  }
+
+  td:nth-of-type(3):before {
+    content: "Groupe";
+  }
+
+  td:nth-of-type(4):before {
+    content: "Montant (€)";
+  }
+
+  td:nth-of-type(5):before {
+    content: "Status";
+  }
+
+  td:nth-of-type(6):before {
+    content: "Mise à jour";
+  }
+}
 .createBook-title {
   font-size: 1.5625rem;
   font-weight: 600;
@@ -1365,7 +1811,12 @@ border-ra .cart-item-form-delete input:hover {
   margin-left: 0.5rem;
 }
 
-.add-to-cart {
+.book-actions {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.book-actions a, .book-actions button {
   padding: 0.5rem 1rem;
   background-color: #b8d0ff;
   color: black;
@@ -1377,11 +1828,17 @@ border-ra .cart-item-form-delete input:hover {
   box-sizing: border-box;
   font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
   font-size: 1.125rem;
-  margin-bottom: 2rem;
   display: inline-block;
 }
-.add-to-cart:hover {
+.book-actions a:hover, .book-actions button:hover {
   background-color: #5d7ebe;
+  color: white !important;
+}
+.book-actions button {
+  background-color: #ff7c7c7a;
+}
+.book-actions button:hover {
+  background-color: #b011117a;
   color: white !important;
 }
 

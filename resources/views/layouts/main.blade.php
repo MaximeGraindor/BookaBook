@@ -19,6 +19,7 @@
                     Naviguation principale
                 </h2>
                 <ul class="header-menu">
+                    <span class="responsiveMenu-close"></span>
                     <li class="header-menu-item">
                         <a href="/books" class="header-menu-link {{ (request()->is('books')) ? 'active-header-menu' : '' }}">Livres</a>
                     </li>

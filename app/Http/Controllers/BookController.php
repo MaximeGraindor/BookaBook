@@ -190,6 +190,7 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        Book::destroy($book->id);
+        return redirect('books');
     }
 }
