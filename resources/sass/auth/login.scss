@@ -144,7 +144,7 @@
         padding: 2rem;
     }
     .login-right {
-        padding: 3rem;
+        padding: 2rem;
     }
 }
 @media screen and (max-width:750px){
@@ -153,5 +153,21 @@
     }
     .login-right .login-logo-HEPL {
         width: 200px;
+    }
+}
+@media screen and (max-width:500px){
+    .login-form input[type=email], .login-form input[type=password], .login-form input[type=text] {
+        width: 100%;
+        font-size: 1rem;
+    }
+    .login-form input[type=submit] {
+        width: 100%;
+    }
+    .login-others {
+        flex-direction: column;
+        text-align: center;
+    }
+    .login-form label[for=email], .login-form label[for=password] {
+        font-size: 1rem;
     }
 }

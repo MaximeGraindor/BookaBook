@@ -56,9 +56,11 @@
                             </label>
                         </div>
                         @if (Route::has('password.request'))
-                            <a class="login-forgotPassword" href="{{ route('password.request') }}">
-                                Mot de passe oublié&nbsp;?
-                            </a>
+                            <div>
+                                <a class="login-forgotPassword" href="{{ route('password.request') }}">
+                                    Mot de passe oublié&nbsp;?
+                                </a>
+                            </div>
                         @endif
                     </div>
                     <div class="login-form-submit">
