@@ -94,7 +94,7 @@ class UserController extends Controller
             $img = Image::make($img)->resize(300, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
-            $img->save('storage/users'. '\\' . $nameImg);
+            $img->save('storage/users/'. $nameImg);
             $user->update([
                 'picture' => $nameImg,
             ]);

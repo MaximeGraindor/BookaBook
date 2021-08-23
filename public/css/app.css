@@ -797,6 +797,10 @@ body {
   .resetPassword-form label[for=email], .resetPassword-form label[for=password] {
     font-size: 1rem;
   }
+
+  .resetPassword-title {
+    font-size: 2rem;
+  }
 }
 .bab-pagination {
   display: flex;
