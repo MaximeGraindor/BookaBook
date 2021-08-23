@@ -55,8 +55,6 @@ class OrderController extends Controller
             ->where('user_id', Auth::user()->id)
             ->first();
 
-
-
         if($draftOrder){
             if(BookOrder::where([['order_id', $draftOrder->id], ['book_id', $request->bookId]])->first()){
                 $bookOrder = BookOrder::where([['order_id', $draftOrder->id], ['book_id', $request->bookId]])->first();
@@ -76,6 +74,8 @@ class OrderController extends Controller
             $order->books()->attach($request->bookId, ['quantity' => 1]);
             $order->status()->attach(Status::where('name', 'Brouillon')->first());
         }
+
+        toastr()->success('Le livre a bien été ajouté au panier!', 'Livré ajouté');
 
         return redirect()->back();
     }

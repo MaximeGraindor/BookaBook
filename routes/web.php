@@ -48,7 +48,7 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
         Route::post('/{order:id}/status', [OrderStatusController::class, 'update'])->name('orderStatus.update')->middleware('teacher');
         Route::post('/{order:id}/status/waiting', [OrderStatusController::class, 'updateDraftOrder'])->name('orderStatus.updateDraftOrder');
         Route::post('/{book:id}/quantity', [BookOrderController::class, 'update'])->name('bookOrder.update');
-        Route::post('/{book:id}/delete', [BookOrderController::class, 'destroy'])->name('bookOrder.destroy')->middleware('teacher');
+        Route::post('/{book:id}/delete', [BookOrderController::class, 'destroy'])->name('bookOrder.destroy');
     });
 
     Route::get('/orders', [OrderController::class, 'index'])->name('order.index')->middleware('teacher');

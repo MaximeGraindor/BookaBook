@@ -17,7 +17,7 @@
                 </h2>
                 @can('isTeacher')
                     <div class="book-actions">
-                        <a href="/books/{{$book->slug}}/edit" class="add-to-cart">Modifier le livre</a>
+                        <a href="/books/{{$book->slug}}/edit" class="add-to-cart">Modifier</a>
                         <form action="/books/{{$book->slug}}/destroy" method="post">
                             @csrf
                             <button type="submit"  class="add-to-cart">Supprimer</button>
@@ -38,7 +38,7 @@
                     <li>
                         <span class="book-content-infos-title">Auteur(s)&nbsp;: </span>
                         @foreach ( $book->authors as $author )
-                            <span>{{ $author->name }}</span>
+                            <span class="book-content-author">{{ $author->name }}</span>
                         @endforeach
                     </li>
                     <li>

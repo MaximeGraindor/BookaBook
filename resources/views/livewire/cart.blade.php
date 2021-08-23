@@ -1,6 +1,3 @@
-@extends('layouts.main')
-@section('title', 'Panier')
-@section('content')
 <section class="cart max-width">
     <h2 class="cart-title">Votre panier</h2>
     @if($draftOrder)
@@ -30,7 +27,7 @@
                                 </select>
                                 <input type="submit" value="Mettre à jour">
                             </form>
-                            <form action="/order/{{$book->id}}/delete" method="post"  class="cart-item-form-delete">
+                            <form {{-- action="/order/{{$book->id}}/delete" --}}  class="cart-item-form-delete" wire:click.prevent="deleteBook({{$book}})">
                                 @csrf
                                 <input type="submit" value="" >
                             </form>
@@ -67,4 +64,3 @@
     @endif
 
 </section>
-@endsection

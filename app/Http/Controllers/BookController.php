@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreBookRequest;
 use Image;
 use App\Models\Book;
 use App\Models\Author;
@@ -43,22 +44,10 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBookRequest $request)
     {
-        $request->validate([
-            'cover' => 'required',
-            'title' => 'required|string',
-            'isbn' => 'required|unique:books|string|min:10',
-            'required' => 'required',
-            'publicPrice' => ['required','regex:/^(?:[1-9]\d+|\d)(?:\.\d\d)?$/'],
-            'studentPrice' => ['required', 'regex:/^(?:[1-9]\d+|\d)(?:\.\d\d)?$/'],
-            'publisher' => 'required',
-            'publishingDetails' => 'nullable'
-        ]);
-
         $img = $request->file('cover');
         $nameImg = $img->hashName();
-
         $img = Image::make($img)->resize(300, null, function ($constraint) {
             $constraint->aspectRatio();
         });
@@ -93,7 +82,7 @@ class BookController extends Controller
     public function show(Book $book)
     {
         $book->load('authors', 'publisher');
-        $randomBooks = Book::all()->shuffle()->take(rand(5, 5));
+        $randomBooks = Book::all()->shuffle()->random(5);
         return view('pages.book.show-book', compact('book', 'randomBooks'));
     }
 

@@ -1871,3 +1871,7 @@ border-ra .cart-item-form-delete input:hover {
   margin-bottom: 2rem;
   font-weight: 600;
 }
+
+.book-content-author:not(:last-child):after {
+  content: ",";
+}

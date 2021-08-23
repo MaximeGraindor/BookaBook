@@ -108,13 +108,16 @@ class BookOrderController extends Controller
         ->where('user_id', Auth::user()->id)
         ->first();
 
-        $draftOrder->update(['amount' => ($draftOrder->amount - $book->student_price)]);
+        $draftOrder->update([
+            'amount' => $draftOrder->amount - ($book->student_price * $draftOrder->books->find($book->id)->pivot->quantity)
+        ]);
         $draftOrder->books()->detach($book->id);
 
         if($draftOrder->books()->count() === 0){
             $draftOrder->delete();
         };
 
+        toastr()->success('Le livre à bien été supprimé du panier', 'Livre supprimé');
         return redirect()->back();
     }
 }

@@ -7,6 +7,7 @@
     <title>Book a Book - @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
     @livewireStyles
+    @toastr_css
 </head>
 <body class="main-content">
     <header class="max-width header">
@@ -55,6 +56,9 @@
 
     <script src="{{ asset('/js/app.js') }}"></script>
     @livewireScripts
+    @jquery
+    @toastr_js
+    @toastr_render
 
 </body>
 </html>
