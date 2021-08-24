@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePublisherRequest;
 use App\Models\Publisher;
 use Illuminate\Http\Request;
 
@@ -33,9 +34,12 @@ class PublisherController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePublisherRequest $request)
     {
-        //
+        Publisher::create([
+            'name' => $request->name
+        ]);
+        return redirect()->back();
     }
 
     /**
@@ -80,6 +84,8 @@ class PublisherController extends Controller
      */
     public function destroy(Publisher $publisher)
     {
-        //
+        return $publisher;
+        Publisher::destroy($publisher->id);
+        return redirect()->back();
     }
 }

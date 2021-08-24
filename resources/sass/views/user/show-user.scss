@@ -117,3 +117,79 @@
         }
     }
 }
+
+// RESPONSIVE
+@media screen and (max-width: 730px){
+    .profil-content {
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 450px){
+    .profil-content {
+        flex-direction: column;
+    }
+    .profil-picture img {
+        width: 100%;
+        height: auto;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+}
+
+@media
+only screen and (max-width: 760px) {
+
+    .profil-order-table{
+        display: block;
+        /* Force table to not be like tables anymore */
+        thead, tbody, th, td, tr {
+            display: block;
+        }
+
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+        tr {
+            box-shadow: 2px 2px 16px -13px black;
+            margin-bottom: 2rem;
+            background-color: white;
+            padding: 0.5rem;
+            &:nth-child(even){
+                background-color: white !important;
+            }
+        }
+
+        td {
+            /* Behave  like a "row" */
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 50%;
+        }
+
+        td:before {
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: 6px;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+
+        /*
+        Label the data
+        */
+        td:nth-of-type(1):before { content: "Commande"; font-weight: bold; }
+        td:nth-of-type(2):before { content: "Statut"; font-weight: bold; }
+        td:nth-of-type(3):before { content: "Montant"; font-weight: bold; }
+        td:nth-of-type(4):before { content: "Création"; font-weight: bold; }
+        td:nth-of-type(5):before { content: "Mise à jour"; font-weight: bold; }
+    }
+
+}

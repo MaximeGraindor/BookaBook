@@ -123,4 +123,49 @@
             </form>
         </div>
     </section>
+
+    <section class="createBook-extraData max-width">
+        <h2 class="createBook-title">
+            Ajouter un éditeur
+        </h2>
+        <form action="/publishers/store" method="post">
+            @csrf
+            <label for="publisher" class="hidden">Éditeur</label>
+            <input type="text" id="publisher" name="name">
+            <input type="submit" value="Ajouter">
+        </form>
+        <div class="createBook-extraData-wrapper">
+            @foreach ($publishers as $publisher)
+                <div>
+                    <p>{{$publisher->name}}</p>
+                    <form action="/publishers/{{$author->id}}" method="post">
+                        @csrf
+                        <input type="submit" value="" class="delete-item">
+                    </form>
+                </div>
+            @endforeach
+        </div>
+    </section>
+    <section class="createBook-extraData max-width">
+        <h2 class="createBook-title">
+            Ajouter un Auteur
+        </h2>
+        <form action="/authors/store" method="post">
+            @csrf
+            <label for="author" class="hidden">Auteur</label>
+            <input type="text" id="author" name="name">
+            <input type="submit" value="Ajouter">
+        </form>
+        <div class="createBook-extraData-wrapper">
+            @foreach ($authors as $author)
+                <div>
+                    <p>{{$author->name}}</p>
+                    <form action="/authors/{{$author->id}}" method="post">
+                        @csrf
+                        <input type="submit" value="" class="delete-item">
+                    </form>
+                </div>
+            @endforeach
+        </div>
+    </section>
 @endsection

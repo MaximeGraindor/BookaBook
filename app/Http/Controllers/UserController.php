@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUserRequest;
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -75,20 +76,12 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
         $user = User::where('id', Auth::user()->id)->first();
 
-        $request->validate([
-            'firstname' => 'nullable|string',
-            'name' => 'nullable|string',
-            'email' => 'nullable|unique:users|max:255',
-            'group' => 'nullable|integer',
-            'picture' => 'mimes:jpg,png,jpeg,gif'
-        ]);
-
-        if($request->hasFile('picture')){
-            $img = $request->file('picture');
+        if($request->hasFile('cover')){
+            $img = $request->file('cover');
             $nameImg = $img->hashName();
 
             $img = Image::make($img)->resize(300, null, function ($constraint) {

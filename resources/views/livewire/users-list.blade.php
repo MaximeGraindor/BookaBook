@@ -26,7 +26,7 @@
     </div>
 
     <div class="students-wrapper">
-        <table>
+        <table class="users-table">
             <thead>
                 <th>Nom Prénom</th>
                 <th>Groupe</th>

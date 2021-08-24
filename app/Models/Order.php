@@ -36,7 +36,7 @@ class Order extends Model
      */
     public function getLastStatusAttribute()
     {
-        return $this->status()->orderBy('order_statuses.created_at', 'desc')->first()->name;
+        return $this->status()->orderBy('order_statuses.created_at', 'desc')->first();
     }
 
     /**

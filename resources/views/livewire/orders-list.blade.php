@@ -19,7 +19,7 @@
     </div>
 
     <div class="orders-wrapper">
-        <table>
+        <table class="orders-table">
             <thead>
                 <th>Numéro</th>
                 <th>Étudiant</th>
@@ -49,14 +49,14 @@
                                 <label for="status" class="hidden">Changement de statut</label>
                                 <select name="status" id="status" {{-- wire:change="updateOrder({{$order->id}})" --}}>
                                     @foreach ($statuses as $status)
-                                        <option value="{{$status->id}}" {{$status->name === $order->last_status ? 'selected' : ''}}>{{$status->name}}</option>
+                                        <option value="{{$status->id}}" {{$status->name === $order->last_status->name ? 'selected' : ''}}>{{$status->name}}</option>
                                     @endforeach
                                 </select>
                                 <input type="submit" value="Modifier">
                             </form>
                         </td>
                         <td>
-                            <a href="profil/{{$order->user->slug}}/order/{{$order->number}}">{{$order->status[0]->updated_at}}</a>
+                            <a href="profil/{{$order->user->slug}}/order/{{$order->number}}">{{$order->last_status->updated_at}}</a>
                         </td>
                     </tr>
                 @endforeach

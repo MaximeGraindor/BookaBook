@@ -989,6 +989,45 @@ border-ra .cart-item-form-delete input:hover {
     align-items: stretch;
   }
 }
+@media screen and (max-width: 580px) {
+  .cart-item-right div {
+    display: flex;
+    justify-content: initial;
+    gap: 0;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 440px) {
+  .cart-item-form-quantity {
+    display: flex;
+    align-items: initial;
+    gap: 0.4rem;
+    flex-direction: column;
+  }
+
+  .cart-item-form-delete {
+    margin-top: 1rem;
+  }
+
+  .cart-item-price {
+    margin-bottom: 1rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .cart-item {
+    flex-direction: column;
+  }
+
+  .cart-item .cart-item-picture img {
+    width: 70%;
+    height: auto;
+    border: 1px solid black;
+  }
+
+  .cart-item-left {
+    text-align: center;
+  }
+}
 .header {
   background-color: white;
   padding: 0.6rem 2rem;
@@ -1096,17 +1135,22 @@ border-ra .cart-item-form-delete input:hover {
   right: 0;
   top: 0;
   height: 100vh;
-  background-color: #e1f1ff;
+  background-color: #f4f6fc;
   padding: 4rem 4rem 2rem;
   border-left: 2px solid black;
+  box-shadow: 9px 16px 20px 0px black;
   z-index: 2;
 }
 .menuResponsive-on .header-menu {
   flex-direction: column;
   gap: 2rem;
+  position: relative;
 }
 .menuResponsive-on .header-menu .responsiveMenu-close {
   display: block;
+  position: absolute;
+  top: -30px;
+  right: -30px;
 }
 
 @media screen and (max-width: 1000px) {
@@ -1121,6 +1165,19 @@ border-ra .cart-item-form-delete input:hover {
   .header .header-title::after {
     height: 62px;
     top: -19px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .header .header-title {
+    font-size: 1.3rem;
+    padding-right: 1rem;
+    font-weight: 500;
+    position: relative;
+  }
+
+  .header .header-title::after {
+    height: 62px;
+    top: -21px;
   }
 }
 .profilUpdate-title {
@@ -1148,7 +1205,7 @@ border-ra .cart-item-form-delete input:hover {
 }
 .profilUpdate-form input {
   padding: 0.3125rem 0.375rem;
-  width: 450px;
+  width: 100%;
   box-sizing: border-box;
   border: 1px solid black;
   background-color: white;
@@ -1158,6 +1215,30 @@ border-ra .cart-item-form-delete input:hover {
   font-size: 1.125rem;
 }
 
+.profilUpdate-preview-wrapper img {
+  width: 300px;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media screen and (max-width: 690px) {
+  .profilUpdate-wrapper {
+    display: flex;
+    gap: 3rem;
+    flex-direction: column;
+  }
+
+  .profilUpdate-preview-wrapper {
+    text-align: center;
+  }
+  .profilUpdate-preview-wrapper img {
+    width: 60%;
+    height: auto;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+}
 .students-top {
   display: flex;
   justify-content: space-between;
@@ -1256,6 +1337,105 @@ border-ra .cart-item-form-delete input:hover {
   box-sizing: border-box;
 }
 
+@media screen and (max-width: 760px) {
+  .users-table {
+    display: block;
+    /* Force table to not be like tables anymore */
+    /* Hide table headers (but not display: none;, for accessibility) */
+    /*
+    Label the data
+    */
+  }
+  .users-table thead, .users-table tbody, .users-table th, .users-table td, .users-table tr {
+    display: block;
+  }
+  .users-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  .users-table tr {
+    box-shadow: 2px 2px 16px -13px black;
+    margin-bottom: 2rem;
+    background-color: white;
+    padding: 0.5rem;
+  }
+  .users-table tr:nth-child(even) {
+    background-color: white !important;
+  }
+  .users-table td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+  .users-table td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+  .users-table td:nth-of-type(1):before {
+    content: "Commande";
+    font-weight: bold;
+  }
+  .users-table td:nth-of-type(2):before {
+    content: "Statut";
+    font-weight: bold;
+  }
+  .users-table td:nth-of-type(3):before {
+    content: "Montant";
+    font-weight: bold;
+  }
+  .users-table td:nth-of-type(4):before {
+    content: "Création";
+    font-weight: bold;
+  }
+  .users-table td:nth-of-type(5):before {
+    content: "Mise à jour";
+    font-weight: bold;
+  }
+}
+@media screen and (max-width: 680px) {
+  .students-top {
+    flex-direction: column;
+    align-items: initial;
+  }
+
+  .students-title {
+    font-size: 1.5625rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .students-top {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: initial;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .students-title {
+    font-size: 1.5625rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  .orders-form-filter {
+    display: flex;
+    align-items: initial;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
 .profil-breadcrumb {
   margin: 2rem 0;
 }
@@ -1365,6 +1545,87 @@ border-ra .cart-item-form-delete input:hover {
   background-color: #dadada;
 }
 
+@media screen and (max-width: 730px) {
+  .profil-content {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 450px) {
+  .profil-content {
+    flex-direction: column;
+  }
+
+  .profil-picture img {
+    width: 100%;
+    height: auto;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+}
+@media only screen and (max-width: 760px) {
+  .profil-order-table {
+    display: block;
+    /* Force table to not be like tables anymore */
+    /* Hide table headers (but not display: none;, for accessibility) */
+    /*
+    Label the data
+    */
+  }
+  .profil-order-table thead, .profil-order-table tbody, .profil-order-table th, .profil-order-table td, .profil-order-table tr {
+    display: block;
+  }
+  .profil-order-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  .profil-order-table tr {
+    box-shadow: 2px 2px 16px -13px black;
+    margin-bottom: 2rem;
+    background-color: white;
+    padding: 0.5rem;
+  }
+  .profil-order-table tr:nth-child(even) {
+    background-color: white !important;
+  }
+  .profil-order-table td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+  .profil-order-table td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+  .profil-order-table td:nth-of-type(1):before {
+    content: "Commande";
+    font-weight: bold;
+  }
+  .profil-order-table td:nth-of-type(2):before {
+    content: "Statut";
+    font-weight: bold;
+  }
+  .profil-order-table td:nth-of-type(3):before {
+    content: "Montant";
+    font-weight: bold;
+  }
+  .profil-order-table td:nth-of-type(4):before {
+    content: "Création";
+    font-weight: bold;
+  }
+  .profil-order-table td:nth-of-type(5):before {
+    content: "Mise à jour";
+    font-weight: bold;
+  }
+}
 .order .order-title {
   font-size: 1.5625rem;
   margin-top: 3rem;
@@ -1572,32 +1833,40 @@ border-ra .cart-item-form-delete input:hover {
   color: white !important;
 }
 
-@media only screen and (max-width: 760px) {
-  /* Force table to not be like tables anymore */
-  table, thead, tbody, th, td, tr {
+@media screen and (max-width: 760px) {
+  .orders-table {
+    display: block;
+    /* Force table to not be like tables anymore */
+    /* Hide table headers (but not display: none;, for accessibility) */
+    /*
+    Label the data
+    */
+  }
+  .orders-table thead, .orders-table tbody, .orders-table th, .orders-table td, .orders-table tr {
     display: block;
   }
-
-  /* Hide table headers (but not display: none;, for accessibility) */
-  thead tr {
+  .orders-table thead tr {
     position: absolute;
     top: -9999px;
     left: -9999px;
   }
-
-  tr {
-    border: 1px solid #ccc;
+  .orders-table tr {
+    box-shadow: 2px 2px 16px -13px black;
+    margin-bottom: 2rem;
+    background-color: white;
+    padding: 0.5rem;
   }
-
-  td {
+  .orders-table tr:nth-child(even) {
+    background-color: white !important;
+  }
+  .orders-table td {
     /* Behave  like a "row" */
     border: none;
     border-bottom: 1px solid #eee;
     position: relative;
     padding-left: 50%;
   }
-
-  td:before {
+  .orders-table td:before {
     /* Now like a table header */
     position: absolute;
     /* Top/left values mimic padding */
@@ -1607,32 +1876,64 @@ border-ra .cart-item-form-delete input:hover {
     padding-right: 10px;
     white-space: nowrap;
   }
-
-  /*
-  Label the data
-  */
-  td:nth-of-type(1):before {
+  .orders-table td:nth-of-type(1):before {
     content: "Commande";
+    font-weight: bold;
   }
-
-  td:nth-of-type(2):before {
-    content: "Nom Prénom";
+  .orders-table td:nth-of-type(2):before {
+    content: "Statut";
+    font-weight: bold;
   }
-
-  td:nth-of-type(3):before {
-    content: "Groupe";
+  .orders-table td:nth-of-type(3):before {
+    content: "Montant";
+    font-weight: bold;
   }
-
-  td:nth-of-type(4):before {
-    content: "Montant (€)";
+  .orders-table td:nth-of-type(4):before {
+    content: "Création";
+    font-weight: bold;
   }
-
-  td:nth-of-type(5):before {
-    content: "Status";
-  }
-
-  td:nth-of-type(6):before {
+  .orders-table td:nth-of-type(5):before {
     content: "Mise à jour";
+    font-weight: bold;
+  }
+}
+@media screen and (max-width: 680px) {
+  .orders-top {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: initial;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .orders-title {
+    font-size: 1.5625rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .orders-top {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: initial;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .orders-title {
+    font-size: 1.5625rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  .orders-form-filter {
+    display: flex;
+    align-items: initial;
+    flex-direction: column;
+    gap: 1rem;
   }
 }
 .createBook-title {
@@ -1677,7 +1978,7 @@ border-ra .cart-item-form-delete input:hover {
 }
 .createBook-form input[type=text], .createBook-form input[type=file], .createBook-form select {
   padding: 0.5rem 0.625rem;
-  width: 450px;
+  width: 100%;
   box-sizing: border-box;
   border: 1px solid black;
   background-color: white;
@@ -1772,6 +2073,83 @@ border-ra .cart-item-form-delete input:hover {
   color: white;
 }
 
+.createBook-extraData form {
+  margin-bottom: 2rem;
+}
+.createBook-extraData form input {
+  padding: 0.3rem 0.6rem;
+  font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 0.875rem;
+}
+
+.createBook-extraData-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+}
+.createBook-extraData-wrapper div {
+  background-color: #d3daff;
+  padding: 2rem;
+  border-radius: 5px;
+  line-height: 1.3rem;
+  box-shadow: 2px 2px 16px -13px black;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.createBook-extraData-wrapper div p {
+  text-align: center;
+}
+.createBook-extraData-wrapper div .delete-item {
+  font-family: "Poppins", Verdana, Arial, Helvetica, sans-serif;
+  width: 25px;
+  height: 25px;
+  background-color: #ff7c7c7a;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-image: url("../../img/delete.svg");
+  background-size: 50%;
+  background-position: 8px center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.createBook-extraData-wrapper div .delete-item:hover {
+  font-weight: 600;
+  background-color: #ff00007a;
+  color: white;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 865px) {
+  .createBook-wrapper {
+    flex-direction: column;
+  }
+
+  .createBook-preview-wrapper {
+    width: 300px;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 570px) {
+  .createBook-wrapper {
+    flex-direction: column;
+  }
+
+  .createBook-preview-wrapper {
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  .createBook-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
 .books-top {
   display: flex;
   justify-content: space-between;
@@ -1879,6 +2257,16 @@ border-ra .cart-item-form-delete input:hover {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
     gap: 2rem;
+  }
+
+  .books-top {
+    flex-direction: column-reverse;
+    align-items: initial;
+  }
+
+  .books-add {
+    margin-left: 0rem !important;
+    margin-bottom: 1rem;
   }
 }
 .book-breadcrumb {

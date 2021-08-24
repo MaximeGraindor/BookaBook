@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAuthorRequest;
 use App\Models\Author;
 use Illuminate\Http\Request;
 
@@ -33,9 +34,12 @@ class AuthorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAuthorRequest $request)
     {
-        //
+        Author::create([
+            'name' => $request->name
+        ]);
+        return redirect()->back();
     }
 
     /**
@@ -80,6 +84,7 @@ class AuthorController extends Controller
      */
     public function destroy(Author $author)
     {
-        //
+        Author::destroy($author->id);
+        return redirect()->back();
     }
 }

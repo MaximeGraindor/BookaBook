@@ -9,15 +9,15 @@
 
             <div class="profilUpdate-wrapper">
                 <div class="profilUpdate-preview-wrapper">
-                    <img src="{{asset('/storage/users/' . $user->picture)}}" alt="Photo de profil">
+                    <img src="{{asset('/storage/users/' . $user->picture)}}" alt="Photo de profil" id="coverPreview">
                 </div>
                 <form action="/profil/{{$user->slug}}/update" method="post" class="profilUpdate-form" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="profilUpdate-picture">
-                        <label for="picture">Photo de profil</label>
-                        <input type="file" id="picture" name="picture">
-                        @error('picture')
+                        <label for="cover">Photo de profil</label>
+                        <input type="file" id="cover" name="cover">
+                        @error('cover')
                             <span>
                                 {{$message}}
                             </span>

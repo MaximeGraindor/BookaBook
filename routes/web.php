@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Models\OrderStatus;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderStatusController;
+use App\Http\Controllers\PublisherController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,5 +56,9 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::get('/orders', [OrderController::class, 'index'])->name('order.index')->middleware('teacher');
     Route::get('/students', [UserController::class, 'index'])->name('user.index')->middleware('teacher');
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/publishers/store', [PublisherController::class, 'store'])->name('publisher.store');
+    Route::post('/publishers/{publisher:id}', [PublisherController::class, 'destroy'])->name('publisher.destroy');
+    Route::post('/authors/store', [AuthorController::class, 'store'])->name('author.store');
+    Route::post('/authors/{author:id}', [AuthorController::class, 'destroy'])->name('author.destroy');
 });
 
