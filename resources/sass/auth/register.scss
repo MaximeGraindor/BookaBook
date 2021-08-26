@@ -107,7 +107,9 @@
 .register-error {
     color: #ac0000;
     font-weight: 600;
+    max-width: 450px;
     display: block;
+    line-height: 1.2rem;
     margin-top: 0.2rem;
 }
 .register-input-error{
@@ -125,6 +127,17 @@
     }
     .register-right {
         padding: 2rem;
+    }
+}
+@media screen and (max-height:900px){
+    .register-wrapper {
+        display: flex;
+        height: initial;
+        box-sizing: border-box;
+    }
+    .register-left {
+        overflow: auto;
+        padding: 2rem 0;
     }
 }
 @media screen and (max-width:750px){

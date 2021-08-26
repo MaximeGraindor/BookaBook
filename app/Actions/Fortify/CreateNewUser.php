@@ -4,6 +4,7 @@ namespace App\Actions\Fortify;
 
 use App\Models\Role;
 use App\Models\User;
+use App\Rules\HeplStudentRule;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
@@ -32,7 +33,9 @@ class CreateNewUser implements CreatesNewUsers
                 'email',
                 'max:255',
                 Rule::unique(User::class),
+                new HeplStudentRule,
             ],
+            'enabled' => ['nullable'],
             'group' => ['required', 'integer'],
             'password' => $this->passwordRules(),
         ])->validate();
@@ -43,6 +46,7 @@ class CreateNewUser implements CreatesNewUsers
             'picture' => $input['picture'],
             'slug' => strtolower($input['firstname'].$input['name']),
             'email' => $input['email'],
+            'enabled' => 1,
             'group' => $input['group'],
             'password' => Hash::make($input['password']),
         ]);

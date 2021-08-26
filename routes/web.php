@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\AuthorController;
 use App\Models\OrderStatus;
+use Illuminate\Mail\Markdown;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
-use App\Http\Controllers\BookOrderController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\OrderStatusController;
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookOrderController;
 use App\Http\Controllers\PublisherController;
+use App\Http\Controllers\OrderStatusController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,3 +63,8 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
     Route::post('/authors/{author:id}', [AuthorController::class, 'destroy'])->name('author.destroy');
 });
 
+Route::get('mail', function () {
+    $markdown = new Markdown(view(), config('mail.markdown'));
+
+    return $markdown->render('emails.cartConfirmed');
+});

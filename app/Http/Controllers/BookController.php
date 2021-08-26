@@ -51,7 +51,7 @@ class BookController extends Controller
         $img = Image::make($img)->resize(300, null, function ($constraint) {
             $constraint->aspectRatio();
         });
-        $img->save('storage/books'. '\\' . $nameImg);
+        $img->save('storage/books/' . $nameImg);
 
         $book = Book::create([
             'cover_path' => $nameImg,
@@ -117,7 +117,7 @@ class BookController extends Controller
             $img = Image::make($img)->resize(300, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
-            $img->save('storage/books'. '\\' . $nameImg);
+            $img->save('storage/books/' . $nameImg);
             $book->update([
                 'cover_path' => $nameImg,
             ]);

@@ -21,12 +21,6 @@ class OrdersList extends Component
         'student',
     ];
 
-    /* public function updateOrder($order){
-        $order = Order::with('status')->where('id', $order)->first();
-        $order->status()->attach($this->selectedStatus);
-        dd($order);
-    } */
-
     public function render()
     {
         $orders = Order::with('user', 'status')
@@ -44,4 +38,10 @@ class OrdersList extends Component
             'statuses' => $statuses,
         ]);
     }
+
+    /* public function updateOrder($order){
+        $order = Order::with('status')->where('id', $order)->first();
+        $order->status()->attach($this->selectedStatus);
+        dd($order);
+    } */
 }

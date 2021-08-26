@@ -25,7 +25,7 @@
                                 <label for="quantity">Quantité</label>
                                 <select name="quantity" id="quantity">
                                     @for ($i = 1; $i <= 5; $i++)
-                                        <option value="{{$i}}" {{ $i === $book->pivot->quantity ? 'selected' : 'help' }}>{{$i}}</option>
+                                        <option value="{{$i}}" {{ $i === $book->pivot->quantity ? 'selected' : '' }}>{{$i}}</option>
                                     @endfor
                                 </select>
                                 <input type="submit" value="Mettre à jour">
