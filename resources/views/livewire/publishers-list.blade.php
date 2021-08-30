@@ -1,6 +1,6 @@
 <section class="createBook-extraData max-width">
     <h2 class="createBook-title">
-        Ajouter un éditeur
+        Éditeur
     </h2>
     <form {{-- action="/publishers/store" method="post" --}} >
         @csrf
