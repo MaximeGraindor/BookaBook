@@ -86,7 +86,8 @@ class BookOrderController extends Controller
         $totalAmount = 0;
 
         foreach ($draftOrder->books as $bookItem) {
-            $totalAmount = $totalAmount + ($bookItem->student_price * $bookItem->pivot->quantity);
+            $totalAmount = $totalAmount + ($bookItem->student_price * (BookOrder::where('book_id', $bookItem->id)->where('order_id', $draftOrder->id)->first())->quantity);
+            //dump('Quantité dans la table pivot : ' . $bookItem->pivot->quantity);
         };
 
         $draftOrder->update(['amount' => $totalAmount]);

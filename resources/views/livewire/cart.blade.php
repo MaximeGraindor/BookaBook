@@ -17,19 +17,19 @@
                         </div>
                         <p class="cart-item-ISBN">ISBN&nbsp;: {{$book->ISBN}}</p>
                         <div>
-                            <form action="/order/{{$book->id}}/quantity" - method="post" class="cart-item-form-quantity" >
+                            <form {{-- action="/order/{{$book->id}}/quantity" method="post" --}} class="cart-item-form-quantity" >
                                 @csrf
                                 <label for="quantity">Quantité</label>
-                                <select name="quantity" id="quantity">
+                                <select name="quantity" id="quantity" wire:change="updateQuantity($event.target.value, {{$book->id}})">>
                                     @for ($i = 1; $i <= 5; $i++)
-                                        <option value="{{$i}}" {{ $i === $book->pivot->quantity ? 'selected' : 'help' }}>{{$i}}</option>
+                                        <option value="{{$i}}" {{ $i === $book->pivot->quantity ? 'selected' : '' }}>{{$i}}</option>
                                     @endfor
                                 </select>
-                                <input type="submit" value="Mettre à jour">
+                                <noscript><input type="submit" value="Mettre à jour"></noscript>
                             </form>
-                            <form {{-- action="/order/{{$book->id}}/delete" --}}  class="cart-item-form-delete" wire:click.prevent="deleteBook({{$book}})">
+                            <form {{-- action="/order/{{$book->id}}/delete" method="post" --}} class="cart-item-form-delete">
                                 @csrf
-                                <input type="submit" value="" >
+                                <input type="submit" value="" wire:click.prevent="deleteBook({{$book->id}})">
                             </form>
                         </div>
                     </div>

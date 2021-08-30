@@ -48,6 +48,7 @@ class BooksList extends Component
             if(BookOrder::where([['order_id', $draftOrder->id], ['book_id', $bookId]])->first()){
                 $bookOrder = BookOrder::where([['order_id', $draftOrder->id], ['book_id', $bookId]])->first();
                 $bookOrder->update(['quantity' => $bookOrder->quantity + 1]);
+                $draftOrder->update(['amount' => ($draftOrder->amount + (Book::where('id', $bookId)->first())->student_price)]);
             }else{
                 $draftOrder->books()->attach($bookId, ['quantity' => 1]);
                 $draftOrder->update(['amount' => ($draftOrder->amount + (Book::where('id', $bookId)->first())->student_price)]);
@@ -63,7 +64,6 @@ class BooksList extends Component
             $order->books()->attach($bookId, ['quantity' => 1]);
             $order->status()->attach(Status::where('name', 'Brouillon')->first());
         }
-        //toastr()->success('Le livre '. (Book::where('id', $request->bookId)->first())->name .' a bien été ajouté au panier!', 'Livré ajouté');
         $this->emit('alert', [
             'type' => 'Livré ajouté',
             'message' => 'Le livre '. $bookName .' a bien été ajouté au panier!'

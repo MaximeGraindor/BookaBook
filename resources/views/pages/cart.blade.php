@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('title', 'Panier')
 @section('content')
-<section class="cart max-width">
+{{-- <section class="cart max-width">
     <h2 class="cart-title">Votre panier</h2>
     @if($draftOrder)
         <div class="cart-content">
@@ -20,7 +20,7 @@
                         </div>
                         <p class="cart-item-ISBN">ISBN&nbsp;: {{$book->ISBN}}</p>
                         <div>
-                            <form action="/order/{{$book->id}}/quantity" - method="post" class="cart-item-form-quantity" >
+                            <form action="/order/{{$book->id}}/quantity" method="post" class="cart-item-form-quantity" >
                                 @csrf
                                 <label for="quantity">Quantité</label>
                                 <select name="quantity" id="quantity">
@@ -66,5 +66,6 @@
         </p>
     @endif
 
-</section>
+</section> --}}
+<livewire:cart />
 @endsection

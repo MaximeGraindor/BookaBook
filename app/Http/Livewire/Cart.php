@@ -2,36 +2,54 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Book;
 use App\Models\Order;
 use Livewire\Component;
+use App\Models\BookOrder;
 use Illuminate\Support\Facades\Auth;
 
 class Cart extends Component
 {
 
-    public $draftOrder;
+    public $quantity;
 
-    public function mount(){
-        $this->draftOrder = Order::whereHas('status', function($query){
+    public function deleteBook($book){
+        $draftOrder = Order::whereHas('status', function($query){
             $query->where('name', 'Brouillon');
         })
         ->where('user_id', Auth::user()->id)
         ->first();
-    }
 
-    public function deleteBook($book){
-        $this->draftOrder->update(['amount' => ($this->draftOrder->amount - $book['student_price'])]);
-        $this->draftOrder->books()->detach($book['id']);
-        if($this->draftOrder->books()->count() === 0){
-            $this->draftOrder->delete();
+        $draftOrder->update([
+            'amount' => $draftOrder->amount - ((Book::where('id',$book)->first())->student_price * $draftOrder->books->find($book)->pivot->quantity)
+        ]);
+        $draftOrder->books()->detach($book);
+
+        if($draftOrder->books()->count() === 0){
+            $draftOrder->delete();
         };
     }
-    public function updateQuantity($book){
-        $this->draftOrder->update(['amount' => ($this->draftOrder->amount - $book['student_price'])]);
-        $this->draftOrder->books()->detach($book['id']);
-        if($this->draftOrder->books()->count() === 0){
-            $this->draftOrder->delete();
+    public function updateQuantity($selectValue, $book){
+        $draftOrder = Order::with('books', 'status')
+        ->whereHas('status', function($query){
+            return $query->where('name', 'Brouillon');
+        })
+        ->where([['user_id', Auth::user()->id]])
+        ->first();
+
+        $draftOrder->books()->updateExistingPivot($book, [
+            'quantity' => $selectValue
+        ]);
+
+        $totalAmount = 0;
+
+        foreach ($draftOrder->books as $bookItem) {
+            $totalAmount = $totalAmount + ($bookItem->student_price * (BookOrder::where('book_id', $bookItem->id)->where('order_id', $draftOrder->id)->first())->quantity);
         };
+
+        $draftOrder->update(['amount' => $totalAmount]);
+
+        return redirect()->back();
     }
 
     public function render()
