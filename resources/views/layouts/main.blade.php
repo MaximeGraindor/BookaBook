@@ -59,6 +59,11 @@
     @jquery
     @toastr_js
     @toastr_render
-
+    <script>
+        window.livewire.on('alert', param => {
+            toastr.success(param['message'], param['type']);
+            console.log('génial');
+        })
+    </script>
 </body>
 </html>

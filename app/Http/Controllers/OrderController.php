@@ -75,7 +75,7 @@ class OrderController extends Controller
             $order->status()->attach(Status::where('name', 'Brouillon')->first());
         }
 
-        toastr()->success('Le livre a bien été ajouté au panier!', 'Livré ajouté');
+        toastr()->success('Le livre '. (Book::where('id', $request->bookId)->first())->name .' a bien été ajouté au panier!', 'Livré ajouté');
 
         return redirect()->back();
     }

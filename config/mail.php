@@ -100,7 +100,7 @@ return [
     */
 
     'markdown' => [
-        'theme' => 'bookabook',
+        'theme' => 'default',
 
         'paths' => [
             resource_path('views/vendor/mail'),

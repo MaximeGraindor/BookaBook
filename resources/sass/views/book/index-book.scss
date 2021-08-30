@@ -101,6 +101,25 @@
     }
 }
 
+.inCart{
+    border: 2px solid black;
+    position: relative;
+    &::before{
+        content: "";
+        background-image: url(./../img/cart.svg);
+        background-size: 63%;
+        background-position: center;
+        position: absolute;
+        width: 30px;
+        background-repeat: no-repeat;
+        height: 30px;
+        border-radius: 50%;
+        top: -15px;
+        right: -15px;
+        background-color: #b8d0ff;
+    }
+}
+
 @media screen and (max-width: 577px){
     .books-wrapper {
         display: grid;

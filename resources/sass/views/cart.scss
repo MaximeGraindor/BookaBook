@@ -93,12 +93,12 @@
         background-size: 60%;
         background-position: 8px center;
         background-repeat: no-repeat;
-        border-ra
         &:hover{
             font-weight: 600;
-            background-color: #5d7ebe;
+            background-color: #fa15157a;
             color: white;
             cursor: pointer;
+            transform: scale(1.2)
         }
     }
 }
