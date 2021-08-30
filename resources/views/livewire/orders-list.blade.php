@@ -1,6 +1,6 @@
 <div class="orders max-width">
     <div class="orders-top">
-        <h2 class="orders-title">
+        <h2 class="orders-title" role="heading" aria-level="2">
             Liste des commandes
         </h2>
         <form action="#" method="get" class="orders-form-filter">

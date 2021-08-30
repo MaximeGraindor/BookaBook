@@ -3,10 +3,9 @@
 
 @section('content')
     <section class="profilUpdate max-width">
-        <h2 class="profilUpdate-title">
+        <h2 class="profilUpdate-title" role="heading" aria-level="2">
             Modifier mon profil
         </h2>
-
             <div class="profilUpdate-wrapper">
                 <div class="profilUpdate-preview-wrapper">
                     <img src="{{asset('/storage/users/' . $user->picture)}}" alt="Photo de profil" id="coverPreview">

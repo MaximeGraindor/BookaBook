@@ -14,7 +14,7 @@
         </div>
         <section class="login-left">
             <div class="login-left-wrapper">
-                <h2 class="login-title">Se connecter</h2>
+                <h2 class="login-title" role="heading" aria-level="1">Se connecter</h2>
                 <p class="login-toRegister">
                     Pas encore de compte ? <a href="/register">Inscrivez-vous</a>
                 </p>

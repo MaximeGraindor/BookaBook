@@ -6,7 +6,7 @@
             <span>Étudiant</span>
             <span>{{$user->firstname}} {{$user->name}}</span>
         </div>
-        <h2 class="profil-title">
+        <h2 class="profil-title" role="heading" aria-level="2">
             Mon profil
         </h2>
         <div class="profil-content">
@@ -45,7 +45,7 @@
         </div>
 
             <section class="profil-order">
-                <h2 class="profil-order-title">
+                <h2 class="profil-order-title" role="heading" aria-level="2" >
                     Commandes
                 </h2>
                 <table class="profil-order-table">

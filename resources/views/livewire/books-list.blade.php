@@ -1,7 +1,7 @@
 <div class="max-width books">
     <section>
         <div class="books-top">
-            <h2 class="books-title">
+            <h2 class="books-title" role="heading" aria-level="2">
                 Livres obligatoires
             </h2>
             @can('isTeacher')

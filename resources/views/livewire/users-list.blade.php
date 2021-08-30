@@ -1,6 +1,6 @@
 <div class="students max-width">
     <div class="students-top">
-        <h2 class="students-title">
+        <h2 class="students-title" role="heading" aria-level="2">
             Liste des étudiants
         </h2>
         <form action="#" method="get" class="students-form-filter">

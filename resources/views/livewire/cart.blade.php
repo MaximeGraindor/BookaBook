@@ -1,5 +1,5 @@
 <section class="cart max-width">
-    <h2 class="cart-title">Votre panier</h2>
+    <h2 class="cart-title" role="heading" aria-level="2">Votre panier</h2>
     @if($draftOrder)
         <div class="cart-content">
             <div class="cart-list-item">

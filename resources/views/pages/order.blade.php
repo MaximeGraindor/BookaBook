@@ -3,11 +3,11 @@
 
 @section('content')
     <section class="order max-width">
-        <h2 class="order-title">
+        <h2 class="order-title" role="heading" aria-level="2">
             Commande n°{{$order->number}} de {{$order->user->name}} {{$order->user->firstname}}
         </h2>
         <article class="order-status">
-            <h3 class="order-status-title">
+            <h3 class="order-status-title" role="heading" aria-level="3">
                 Status de la commande
             </h3>
             <div class="order-status-wrapper">
@@ -30,7 +30,7 @@
             </div>
         </article>
         <article class="order-recap">
-            <h3 class="order-recap-title">
+            <h3 class="order-recap-title" role="heading" aria-level="3">
                 Récapitulatif de la commande&nbsp;- {{$order->amount}}€
             </h3>
             <div class="cart-list-item">

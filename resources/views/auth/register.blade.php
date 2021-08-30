@@ -5,7 +5,7 @@
         <h1 class="hidden" role="heading" aria-level="1">Book a Book - Inscription</h1>
         <section class="register-left">
             <div class="register-left-wrapper">
-                <h2 class="register-title">Inscription</h2>
+                <h2 class="register-title" role="heading" aria-level="1">Inscription</h2>
                 <p class="login-toLogin">
                     Déjà inscrit&nbsp;? <a href="/login">Connectez-vous</a>
                 </p>

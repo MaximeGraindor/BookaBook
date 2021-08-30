@@ -12,7 +12,7 @@
                 <img src="{{ asset('/storage/books/' . $book->cover_path) }}" alt="Photo de couverture de{{$book->name}}">
             </div>
             <div class="book-content-infos">
-                <h2 class="book-title">
+                <h2 class="book-title" role="heading" aria-level="2">
                     {{ $book->name }}
                 </h2>
                 @can('isTeacher')

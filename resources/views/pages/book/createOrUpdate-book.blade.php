@@ -4,7 +4,7 @@
 @section('content')
 
     <section class="createBook max-width">
-        <h2 class="createBook-title">
+        <h2 class="createBook-title" role="heading" aria-level="2">
             {{$book->exists ? 'Modifier ' . $book->name: 'Ajouter un livre'}}
         </h2>
         <div class="createBook-wrapper">

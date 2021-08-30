@@ -13,7 +13,7 @@
             <img src="/img/Logo_HEPL.png" alt="Logo de la Haute Ecole de la Province de Liège" class="forgotPassword-logo-HEPL">
         </div>
         <section class="forgotPassword-left">
-            <h2 role="heading" aria-level="2"  class="forgotPassword-title">
+            <h2 role="heading" aria-level="2" class="forgotPassword-title">
                 Vérification d'email
             </h2>
             <p class="forgotPassword-verify">

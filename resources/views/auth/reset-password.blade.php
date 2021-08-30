@@ -14,7 +14,7 @@
         </div>
         <section class="resetPassword-left">
             <div class="resetPassword-left-wrapper">
-                <h2 class="resetPassword-title">Changer <span>son mot de passe</span></h2>
+                <h2 class="resetPassword-title" role="heading" aria-level="1">Changer <span>son mot de passe</span></h2>
                 <form action="{{ route('password.update') }}" method="post" class="resetPassword-form">
                     @csrf
                         <input type="hidden" name="token" value="{{ request()->route('token') }}">

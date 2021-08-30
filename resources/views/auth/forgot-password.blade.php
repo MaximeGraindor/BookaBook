@@ -14,7 +14,7 @@
         </div>
         <section class="forgotPassword-left">
             <div class="forgotPassword-left-wrapper">
-                <h2 class="forgotPassword-title">Réinitialiser <span>son mot de passe</span></h2>
+                <h2 class="forgotPassword-title" role="heading" aria-level="2">Réinitialiser <span>son mot de passe</span></h2>
                 <form action="{{ route('password.email') }}" method="post" class="forgotPassword-form">
                     @csrf
                     <div class="forgotPassword-form-email">
