@@ -93,7 +93,6 @@ class OrderStatusController extends Controller
     public function updateDraftOrder(Request $request, OrderStatus $orderStatus, Order $order)
     {
         $order->status()->sync(Status::where('name', 'Commandé')->first());
-        //Auth::user()->notify(new CartConfirmedNotification($order));
         $user = Auth::user();
         cartConfirmedJob::dispatch($user,$order);
         $order->load('status');

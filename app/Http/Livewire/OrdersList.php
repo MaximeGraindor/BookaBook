@@ -7,6 +7,10 @@ use App\Models\Order;
 use App\Models\Status;
 use Livewire\Component;
 use Livewire\WithPagination;
+use App\Mail\OrderStatusChanged;
+use App\Jobs\OrderStatusChangedJob;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class OrdersList extends Component
 {
@@ -45,6 +49,10 @@ class OrdersList extends Component
         $order->status()->attach($statutId, [
             'updated_at' => Carbon::now()
         ]);
+        $user = Auth::user();
+        $status = Status::where('id', $statutId)->first();
+        OrderStatusChangedJob::dispatch($user, $order, $status);
+        //Mail::to($order->user->email)->send(new OrderStatusChanged($order, $status));
         $this->emit('alert', [
             'type' => 'Statut mis à jour',
             'message' => 'la commande '. $order->number .' a bien été mise à jour !'
