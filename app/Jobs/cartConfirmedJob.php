@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\User;
 use App\Models\Order;
 use Illuminate\Bus\Queueable;
 use Illuminate\Support\Facades\Auth;
@@ -17,15 +18,17 @@ class cartConfirmedJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public $order;
+    public $user;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(Order $order)
+    public function __construct(User $user, Order $order)
     {
         $this->order = $order;
+        $this->user = $user;
     }
 
     /**
@@ -35,6 +38,6 @@ class cartConfirmedJob implements ShouldQueue
      */
     public function handle()
     {
-        Auth::user()->notify(new CartConfirmedNotification($this->order));
+        $this->user->notify(new CartConfirmedNotification($this->order));
     }
 }

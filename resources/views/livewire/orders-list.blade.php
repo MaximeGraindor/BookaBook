@@ -47,16 +47,16 @@
                             <form action="/order/{{$order->id}}/status" method="post" >
                                 @csrf
                                 <label for="status" class="hidden">Changement de statut</label>
-                                <select name="status" id="status" {{-- wire:change="updateOrder({{$order->id}})" --}}>
+                                <select name="status" id="status" wire:change="updateOrder($event.target.value,{{$order->id}})">
                                     @foreach ($statuses as $status)
                                         <option value="{{$status->id}}" {{$status->name === $order->last_status->name ? 'selected' : ''}}>{{$status->name}}</option>
                                     @endforeach
                                 </select>
-                                <input type="submit" value="Modifier">
+                                <noscript><input type="submit" value="Modifier"></noscript>
                             </form>
                         </td>
                         <td>
-                            <a href="profil/{{$order->user->slug}}/order/{{$order->number}}">{{$order->last_status->updated_at}}</a>
+                            <a href="profil/{{$order->user->slug}}/order/{{$order->number}}">{{$order->last_status->pivot->updated_at}}</a>
                         </td>
                     </tr>
                 @endforeach

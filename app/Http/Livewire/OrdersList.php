@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Carbon\Carbon;
 use App\Models\Order;
 use App\Models\Status;
 use Livewire\Component;
@@ -39,9 +40,14 @@ class OrdersList extends Component
         ]);
     }
 
-    /* public function updateOrder($order){
+    public function updateOrder($statutId, $order){
         $order = Order::with('status')->where('id', $order)->first();
-        $order->status()->attach($this->selectedStatus);
-        dd($order);
-    } */
+        $order->status()->attach($statutId, [
+            'updated_at' => Carbon::now()
+        ]);
+        $this->emit('alert', [
+            'type' => 'Statut mis à jour',
+            'message' => 'la commande '. $order->number .' a bien été mise à jour !'
+        ]);
+    }
 }

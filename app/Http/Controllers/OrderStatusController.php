@@ -94,8 +94,8 @@ class OrderStatusController extends Controller
     {
         $order->status()->sync(Status::where('name', 'Commandé')->first());
         //Auth::user()->notify(new CartConfirmedNotification($order));
-        dd(Auth::user());
-        cartConfirmedJob::dispatch($order);
+        $user = Auth::user();
+        cartConfirmedJob::dispatch($user,$order);
         $order->load('status');
         return redirect('books');
     }
