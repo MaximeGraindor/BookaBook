@@ -1295,7 +1295,7 @@ body {
   text-align: left;
 }
 .students table tbody tr:nth-child(even) {
-  background-color: #e8e8e8;
+  background-color: #e7ebf4;
 }
 .students table tbody tr:hover {
   background-color: white;
@@ -1805,7 +1805,7 @@ body {
   text-align: left;
 }
 .orders table tbody tr:nth-child(even) {
-  background-color: #e8e8e8;
+  background-color: #e7ebf4;
 }
 .orders table tbody tr:hover {
   background-color: white;
