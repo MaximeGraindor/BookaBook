@@ -3,6 +3,7 @@
     "/css/app.css": "/css/app.css",
     "/img/add-to-basket.svg": "/img/add-to-basket.svg",
     "/img/arrow-right.svg": "/img/arrow-right.svg",
+    "/img/cart.svg": "/img/cart.svg",
     "/img/close.svg": "/img/close.svg",
     "/img/delete.svg": "/img/delete.svg",
     "/img/edit.svg": "/img/edit.svg",
@@ -12,6 +13,5 @@
     "/img/menu.svg": "/img/menu.svg",
     "/img/preview-book.jpg": "/img/preview-book.jpg",
     "/img/register-background.jpg": "/img/register-background.jpg",
-    "/img/user-default-picture.svg": "/img/user-default-picture.svg",
-    "/img/cart.svg": "/img/cart.svg"
+    "/img/user-default-picture.svg": "/img/user-default-picture.svg"
 }

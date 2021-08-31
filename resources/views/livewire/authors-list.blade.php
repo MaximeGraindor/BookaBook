@@ -1,5 +1,5 @@
 <section class="createBook-extraData max-width">
-    <h2 class="createBook-title" role="heading" aria-level="1">
+    <h2 class="createBook-title" role="heading" aria-level="2">
         Auteurs
     </h2>
     <form {{-- action="/authors/store" method="post" --}}>

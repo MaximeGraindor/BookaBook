@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\cartConfirmedJob;
 use App\Mail\OrderStatusChanged;
 use App\Models\Order;
 use App\Models\Status;
@@ -92,7 +93,9 @@ class OrderStatusController extends Controller
     public function updateDraftOrder(Request $request, OrderStatus $orderStatus, Order $order)
     {
         $order->status()->sync(Status::where('name', 'Commandé')->first());
-        Auth::user()->notify(new CartConfirmedNotification($order));
+        //Auth::user()->notify(new CartConfirmedNotification($order));
+        dd(Auth::user());
+        cartConfirmedJob::dispatch($order);
         $order->load('status');
         return redirect('books');
     }

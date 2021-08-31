@@ -40,7 +40,24 @@
         }
 
     }
+}
 
+.add-to-cart{
+    background-color: #b8d0ff;
+    font-family: $font;
+    border: none;
+    text-align: center;
+    padding: 0.7rem 2rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    font-size: pxToRem(16);
+    &:hover{
+        font-weight: 600;
+        background-color: #5d7ebe;
+        color: white;
+        cursor: pointer;
+    }
 }
 
 .book-content{
