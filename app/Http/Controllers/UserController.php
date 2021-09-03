@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UpdateUserRequest;
+use Image;
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+use App\Rules\MatchOldPassword;
 use Illuminate\Support\Facades\Auth;
-use Image;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\UpdateUserRequest;
 
 class UserController extends Controller
 {
@@ -129,5 +131,20 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => ['required', new MatchOldPassword],
+            'new_password' => ['required', 'min:8'],
+            'new_confirm_password' => ['required', 'min:8'],
+        ]);
+
+        User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+
+        Auth::logout();
+
+        return view('auth.login');
     }
 }

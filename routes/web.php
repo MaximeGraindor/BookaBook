@@ -32,6 +32,8 @@ Route::group(['middleware' => ['auth', 'verified']], function(){
         Route::get('/{user:slug}/edit', [UserController::class, 'edit'])->name('user.edit');
         Route::put('/{user:slug}/update', [UserController::class, 'update'])->name('user.update');
         Route::get('/{user:slug}/order/{order:number}', [OrderController::class, 'show'])->name('order.show');
+        Route::post('/edit/password', [UserController::class, 'changePassword'])
+        ->name('user.profil-edit-password');
     });
 
     Route::prefix('books')->group(function () {

@@ -64,4 +64,56 @@
                 </form>
             </div>
     </section>
+    <section class="profilUpdate max-width">
+        <h2 class="profilUpdate-title" role="heading" aria-level="2">
+            Modifier mon mot de passe
+        </h2>
+        <form
+            action="/profil/edit/password"
+            method="post"
+            class="profilUpdate-form-password"
+            enctype="multipart/form-data"
+            >
+                @csrf
+                <div class="update-form-wrapper">
+                    <label for="current_password">Mot de passe actuel</label>
+                    <div class="password-wrapper-show">
+                        <input type="password" id="current_password" name="current_password" accept=".png,.jpg,.jpeg" >
+                        <span class="password-action"></span>
+                    </div>
+                    @error('current_password')
+                        <span>
+                            {{$message}}
+                        </span>
+                    @enderror
+                </div>
+                <div class="update-form-wrapper">
+                    <label for="new_password">Nouveau mot de passe</label>
+                    <div class="password-wrapper-show">
+                        <input type="password" id="new_password" name="new_password">
+                        <span class="password-action"></span>
+                    </div>
+                    @error('new_password')
+                        <span>
+                            {{$message}}
+                        </span>
+                    @enderror
+                </div>
+                <div class="update-form-wrapper">
+                    <label for="new_confirm_password">Confirmation du nouveau mot de passe</label>
+                    <div class="password-wrapper-show">
+                        <input type="password" id="new_confirm_password" name="new_confirm_password">
+                        <span class="password-action"></span>
+                    </div>
+                    @error('new_confirm_password')
+                        <span>
+                            {{$message}}
+                        </span>
+                    @enderror
+                </div>
+                <div class="update-form-wrapper">
+                    <input type="submit" value="Changer de mot de passe">
+                </div>
+            </form>
+    </section>
 @endsection
