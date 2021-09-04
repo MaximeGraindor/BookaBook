@@ -121,7 +121,7 @@ class AuthorBookSeeder extends Seeder
         ]);
 
         AuthorBook::insert([
-            'book_id' => '17',
+            'book_id' => '16',
             'author_id' => '11',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
