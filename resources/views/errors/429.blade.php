@@ -1,4 +1,4 @@
-@extends('errors::minimal')
+@extends('errors::bab-errors-layout')
 
 @section('title', __('Too Many Requests'))
 @section('code', '429')
