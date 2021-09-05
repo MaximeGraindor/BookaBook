@@ -21,7 +21,6 @@ class BookController extends Controller
      */
     public function index()
     {
-        abort(403)
         $books = Book::all();
         return view('pages.book.index-book', compact('books'));
     }

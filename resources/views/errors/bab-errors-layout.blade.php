@@ -16,7 +16,7 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            font-family:'nunito';
+            font-family:'Verdana';
             color: #2f465b;
         }
         .error-container{
@@ -28,7 +28,7 @@
         }
         .error-message{
             font-size: 1.8rem;
-            margin-top: -2rem;
+            margin-top: -1rem;
             margin-bottom: 2rem;
         }
         .error-link{
