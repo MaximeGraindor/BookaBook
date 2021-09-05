@@ -24,7 +24,7 @@
                     </div>
                     <div class="profilUpdate-firstname">
                         <label for="firstname">Prénom</label>
-                        <input type="text" id="firstname" name="firstname" placeholder="{{$user->firstname}}">
+                        <input type="text" id="firstname" name="firstname" placeholder="{{$user->firstname}}" class="@if($errors->has('firstname'))input-error @endif">
                         @error('firstname')
                             <span>
                                 {{$message}}
@@ -33,7 +33,7 @@
                     </div>
                     <div class="profilUpdate-name">
                         <label for="name">Nom</label>
-                        <input type="text" id="name" name="name" placeholder="{{$user->name}}">
+                        <input type="text" id="name" name="name" placeholder="{{$user->name}}" class="@if($errors->has('name'))input-error @endif">
                         @error('name')
                             <span>
                                 {{$message}}
@@ -42,7 +42,7 @@
                     </div>
                     <div class="profilUpdate-email">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="{{$user->email}}">
+                        <input type="email" id="email" name="email" placeholder="{{$user->email}}" class="@if($errors->has('email'))input-error @endif">
                         @error('email')
                             <span>
                                 {{$message}}
@@ -51,7 +51,7 @@
                     </div>
                     <div class="profilUpdate-group">
                         <label for="group">Group</label>
-                        <input type="text" id="group" name="group" placeholder="{{$user->group}}">
+                        <input type="text" id="group" name="group" placeholder="{{$user->group}}" class="@if($errors->has('group'))input-error @endif">
                         @error('group')
                             <span>
                                 {{$message}}

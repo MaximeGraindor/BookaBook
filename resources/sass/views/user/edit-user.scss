@@ -30,6 +30,12 @@
         display: block;
         margin-top: pxToRem(3);
         font-size: pxToRem(18);
+
+    }
+    span{
+        margin-top: 0.3rem;
+        color: red;
+        display: block;
     }
     input[type=submit]{
         background-color: $color-blue-dark;
@@ -59,6 +65,12 @@
         display: block;
         margin-top: pxToRem(3);
         font-size: pxToRem(18);
+
+    }
+    span{
+        margin-top: 0.3rem;
+        color: red;
+        display: block;
     }
     input[type=submit]{
         background-color: $color-blue-dark;
@@ -67,6 +79,10 @@
             cursor: pointer;
         }
     }
+}
+
+.input-error{
+    border: 2px solid red !important;
 }
 
 .profilUpdate-preview-wrapper{

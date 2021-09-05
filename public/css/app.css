@@ -1229,6 +1229,11 @@ body {
   margin-top: 0.1875rem;
   font-size: 1.125rem;
 }
+.profilUpdate-form span {
+  margin-top: 0.3rem;
+  color: red;
+  display: block;
+}
 .profilUpdate-form input[type=submit] {
   background-color: #5d7ebe;
   color: white;
@@ -1259,12 +1264,21 @@ body {
   margin-top: 0.1875rem;
   font-size: 1.125rem;
 }
+.profilUpdate-form-password span {
+  margin-top: 0.3rem;
+  color: red;
+  display: block;
+}
 .profilUpdate-form-password input[type=submit] {
   background-color: #5d7ebe;
   color: white;
 }
 .profilUpdate-form-password input[type=submit]:hover {
   cursor: pointer;
+}
+
+.input-error {
+  border: 2px solid red !important;
 }
 
 .profilUpdate-preview-wrapper img {

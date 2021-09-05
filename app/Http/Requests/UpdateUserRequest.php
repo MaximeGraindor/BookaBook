@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\HeplStudentRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateUserRequest extends FormRequest
@@ -26,7 +27,7 @@ class UpdateUserRequest extends FormRequest
         return [
             'firstname' => 'nullable|string',
             'name' => 'nullable|string',
-            'email' => 'nullable|unique:users|max:255',
+            'email' => ['nullable','unique:users','max:255', new HeplStudentRule],
             'group' => 'nullable|integer',
             'picture' => 'mimes:jpg,png,jpeg,gif'
         ];
