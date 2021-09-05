@@ -173,5 +173,7 @@ return [
         'required'  => 'obligatoire',
         'publicPrice' => 'prix publique',
         'studentPrice' => 'prix d\'étudiant',
+        'new_password' => 'nouveau mot de passe',
+        'new_confirm_password' => 'confirmation nouveau mot de passe',
     ],
 ];
