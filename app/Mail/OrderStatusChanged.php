@@ -34,6 +34,8 @@ class OrderStatusChanged extends Mailable
      */
     public function build()
     {
-        return $this->from('bookabook@gmail.com')->view('emails.orderStatusChanged');
+        return $this->from('bookabook@gmail.com')
+        ->subject('Le statut de votre commande à changé')
+        ->view('emails.orderStatusChanged');
     }
 }
